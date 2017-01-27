@@ -51,6 +51,10 @@
 	.tile-red:hover{
 		cursor: pointer;
 	}
+ 	.calendar-body {
+    float: left !important;
+    margin-left: 10% !important;
+	}
 	</style>
 
 </head>
@@ -67,9 +71,9 @@
 
 
 
-		<div class="row">
+		<div class="row" style="margin-bottom:15px;">
 
-<center><h2>Contact Us</h2></center>
+<center><h2>Your Schedule</h2></center>
 
 		</div>
 
@@ -82,40 +86,19 @@
 
 					<div class="panel-body">
 
-						<form role="form" class="form-horizontal form-groups-bordered" action="controller/contact.php">
 
-							<div class="form-group">
-								<label for="field-1" class="col-sm-3 control-label">Phone No</label>
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="phone-no" placeholder="Phone No">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="field-1" class="col-sm-3 control-label">Designation</label>
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="designations" placeholder="Designation">
-								</div>
+						<div class="calendar-env">
+
+							<!-- Calendar Body -->
+							<div class="calendar-body">
+
+								<div id="calendar"></div>
+
+
 							</div>
 
 
-
-							<div class="form-group">
-								<label for="field-ta" class="col-sm-3 control-label">Description</label>
-
-								<div class="col-sm-5">
-									<textarea class="form-control" id="field-ta" placeholder="Description"></textarea>
-								</div>
-							</div>
-
-
-
-							<div class="form-group" style="float:right;margin-right:460px;">
-								<div class="col-sm-offset-3 col-sm-5">
-									<button type="submit" class="btn btn-default">Submit</button>
-								</div>
-							</div>
-						</form>
-
+						</div>
 					</div>
 
 				</div>
@@ -161,6 +144,29 @@
 	<script src="assets/js/raphael-min.js"></script>
 	<script src="assets/js/morris.min.js"></script>
 	<script src="assets/js/toastr.js"></script>
+	<script src="assets/js/neon-chat.js"></script>
+
+
+	<!-- JavaScripts initializations and stuff -->
+	<script src="assets/js/neon-custom.js"></script>
+
+
+	<!-- Demo Settings -->
+	<script src="assets/js/neon-demo.js"></script>
+
+	<!-- Calendar Specific Scripts-->
+	<!-- Bottom scripts (common) -->
+	<script src="assets/js/gsap/main-gsap.js"></script>
+	<script src="assets/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js"></script>
+	<script src="assets/js/bootstrap.js"></script>
+	<script src="assets/js/joinable.js"></script>
+	<script src="assets/js/resizeable.js"></script>
+	<script src="assets/js/neon-api.js"></script>
+
+
+	<!-- Imported scripts on this page -->
+	<script src="assets/js/fullcalendar/fullcalendar.min.js"></script>
+	<script src="assets/js/neon-calendar.js"></script>
 	<script src="assets/js/neon-chat.js"></script>
 
 
