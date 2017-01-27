@@ -1,13 +1,3 @@
-<?php
-//if(isset($_SESSION['UserName']))
-	session_start();
-	if(!isset($_SESSION['UserName']))
-	{
-		header("Location:welcome.php?value=home");
-	   exit;
-	}
-	//	echo $_SESSION['UserName'];die;
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +8,7 @@
 	<meta name="description" content="Neon Admin Panel" />
 	<meta name="author" content="" />
 
-	<title>JECRC | Dashboard</title>
+	<title>Neon | Boxed Layout</title>
 
 	<link rel="stylesheet" href="assets/js/jquery-ui/css/no-theme/jquery-ui-1.10.3.custom.min.css">
 	<link rel="stylesheet" href="assets/css/font-icons/entypo/css/entypo.css">
@@ -28,7 +18,6 @@
 	<link rel="stylesheet" href="assets/css/neon-theme.css">
 	<link rel="stylesheet" href="assets/css/neon-forms.css">
 	<link rel="stylesheet" href="assets/css/custom.css">
-	<link rel="stylesheet" href="assets/css/skins/white.css">
 
 	<script src="assets/js/jquery-1.11.0.min.js"></script>
 	<script>$.noConflict();</script>
@@ -40,31 +29,675 @@
 		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
-	<style>
-	.tile-stats{
-    height: 138px;
-	}
-	.tile-red {
-    background: #ff4f4f !important;
 
-	}
-	.tile-red:hover{
-		cursor: pointer;
-	}
-	</style>
 
 </head>
-<body class="page-body skin-white">
+<body class="page-body boxed-layout" data-url="http://neon.dev">
 
 <div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->
+	
+	<div class="sidebar-menu">
 
-<?php include 'components/sidebar.php';?>
+		<div class="sidebar-menu-inner">
+			
+			<header class="logo-env">
+
+				<!-- logo -->
+				<div class="logo">
+					<a href="index.html">
+						<img src="assets/images/logo@2x.png" width="120" alt="" />
+					</a>
+				</div>
+
+				<!-- logo collapse icon -->
+				<div class="sidebar-collapse">
+					<a href="#" class="sidebar-collapse-icon"><!-- add class "with-animation" if you want sidebar to have animation during expanding/collapsing transition -->
+						<i class="entypo-menu"></i>
+					</a>
+				</div>
+
+								
+				<!-- open/close menu icon (do not remove if you want to enable menu on mobile devices) -->
+				<div class="sidebar-mobile-menu visible-xs">
+					<a href="#" class="with-animation"><!-- add class "with-animation" to support animation -->
+						<i class="entypo-menu"></i>
+					</a>
+				</div>
+
+			</header>
+			
+									
+			<ul id="main-menu" class="main-menu">
+				<!-- add class "multiple-expanded" to allow multiple submenus to open -->
+				<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+				<li>
+					<a href="index.html">
+						<i class="entypo-gauge"></i>
+						<span class="title">Dashboard</span>
+					</a>
+					<ul>
+						<li>
+							<a href="index.html">
+								<span class="title">Dashboard 1</span>
+							</a>
+						</li>
+						<li>
+							<a href="dashboard-2.html">
+								<span class="title">Dashboard 2</span>
+							</a>
+						</li>
+						<li>
+							<a href="dashboard-3.html">
+								<span class="title">Dashboard 3</span>
+							</a>
+						</li>
+						<li>
+							<a href="skin-black.html">
+								<span class="title">Skins</span>
+							</a>
+							<ul>
+								<li>
+									<a href="skin-black.html">
+										<span class="title">Black Skin</span>
+									</a>
+								</li>
+								<li>
+									<a href="skin-white.html">
+										<span class="title">White Skin</span>
+									</a>
+								</li>
+								<li>
+									<a href="skin-purple.html">
+										<span class="title">Purple Skin</span>
+									</a>
+								</li>
+								<li>
+									<a href="skin-cafe.html">
+										<span class="title">Cafe Skin</span>
+									</a>
+								</li>
+								<li>
+									<a href="skin-red.html">
+										<span class="title">Red Skin</span>
+									</a>
+								</li>
+								<li>
+									<a href="skin-green.html">
+										<span class="title">Green Skin</span>
+									</a>
+								</li>
+								<li>
+									<a href="skin-yellow.html">
+										<span class="title">Yellow Skin</span>
+									</a>
+								</li>
+								<li>
+									<a href="skin-blue.html">
+										<span class="title">Blue Skin</span>
+									</a>
+								</li>
+								<li>
+									<a href="skin-facebook.html">
+										<span class="title">Facebook Skin</span>
+										<span class="badge badge-secondary badge-roundless">New</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="highlights.html">
+								<span class="title">What's New</span>
+								<span class="badge badge-success badge-roundless">v1.8</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li class="opened active">
+					<a href="layout-api.html">
+						<i class="entypo-layout"></i>
+						<span class="title">Layouts</span>
+					</a>
+					<ul>
+						<li>
+							<a href="layout-api.html">
+								<span class="title">Layout API</span>
+							</a>
+						</li>
+						<li>
+							<a href="layout-collapsed-sidebar.html">
+								<span class="title">Collapsed Sidebar</span>
+							</a>
+						</li>
+						<li>
+							<a href="layout-fixed-sidebar.html">
+								<span class="title">Fixed Sidebar</span>
+							</a>
+						</li>
+						<li>
+							<a href="layout-chat-open.html">
+								<span class="title">Chat Open</span>
+							</a>
+						</li>
+						<li>
+							<a href="layout-horizontal-menu-boxed.html">
+								<span class="title">Horizontal Menu Boxed</span>
+							</a>
+						</li>
+						<li>
+							<a href="layout-horizontal-menu-fluid.html">
+								<span class="title">Horizontal Menu Fluid</span>
+							</a>
+						</li>
+						<li>
+							<a href="layout-mixed-menus.html">
+								<span class="title">Mixed Menus</span>
+							</a>
+						</li>
+						<li>
+							<a href="layout-right-sidebar.html">
+								<span class="title">Right Sidebar</span>
+							</a>
+						</li>
+						<li>
+							<a href="layout-both-menus-right-sidebar.html">
+								<span class="title">Both Menus (Right Sidebar)</span>
+							</a>
+						</li>
+						<li>
+							<a href="layout-page-transition-fade.html">
+								<span class="title">Page Enter Transitions</span>
+							</a>
+							<ul>
+								<li>
+									<a href="layout-page-transition-fade.html">
+										<span class="title">Fade Scale</span>
+									</a>
+								</li>
+								<li>
+									<a href="layout-page-transition-left-in.html">
+										<span class="title">Left In</span>
+									</a>
+								</li>
+								<li>
+									<a href="layout-page-transition-right-in.html">
+										<span class="title">Right In</span>
+									</a>
+								</li>
+								<li>
+									<a href="layout-page-transition-fade-only.html">
+										<span class="title">Fade Only</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li class="active">
+							<a href="layout-boxed.html">
+								<span class="title">Boxed Layout</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="index.html" target="_blank">
+						<i class="entypo-monitor"></i>
+						<span class="title">Frontend</span>
+					</a>
+				</li>
+				<li>
+					<a href="ui-panels.html">
+						<i class="entypo-newspaper"></i>
+						<span class="title">UI Elements</span>
+					</a>
+					<ul>
+						<li>
+							<a href="ui-panels.html">
+								<span class="title">Panels</span>
+							</a>
+						</li>
+						<li>
+							<a href="ui-tiles.html">
+								<span class="title">Tiles</span>
+							</a>
+						</li>
+						<li>
+							<a href="forms-buttons.html">
+								<span class="title">Buttons</span>
+							</a>
+						</li>
+						<li>
+							<a href="ui-typography.html">
+								<span class="title">Typography</span>
+							</a>
+						</li>
+						<li>
+							<a href="ui-tabs-accordions.html">
+								<span class="title">Tabs &amp; Accordions</span>
+							</a>
+						</li>
+						<li>
+							<a href="ui-tooltips-popovers.html">
+								<span class="title">Tooltips &amp; Popovers</span>
+							</a>
+						</li>
+						<li>
+							<a href="ui-navbars.html">
+								<span class="title">Navbars</span>
+							</a>
+						</li>
+						<li>
+							<a href="ui-breadcrumbs.html">
+								<span class="title">Breadcrumbs</span>
+							</a>
+						</li>
+						<li>
+							<a href="ui-badges-labels.html">
+								<span class="title">Badges &amp; Labels</span>
+							</a>
+						</li>
+						<li>
+							<a href="ui-progress-bars.html">
+								<span class="title">Progress Bars</span>
+							</a>
+						</li>
+						<li>
+							<a href="ui-modals.html">
+								<span class="title">Modals</span>
+							</a>
+						</li>
+						<li>
+							<a href="ui-blockquotes.html">
+								<span class="title">Blockquotes</span>
+							</a>
+						</li>
+						<li>
+							<a href="ui-alerts.html">
+								<span class="title">Alerts</span>
+							</a>
+						</li>
+						<li>
+							<a href="ui-pagination.html">
+								<span class="title">Pagination</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="mailbox.html">
+						<i class="entypo-mail"></i>
+						<span class="title">Mailbox</span>
+						<span class="badge badge-secondary">8</span>
+					</a>
+					<ul>
+						<li>
+							<a href="mailbox.html">
+								<i class="entypo-inbox"></i>
+								<span class="title">Inbox</span>
+							</a>
+						</li>
+						<li>
+							<a href="mailbox-compose.html">
+								<i class="entypo-pencil"></i>
+								<span class="title">Compose Message</span>
+							</a>
+						</li>
+						<li>
+							<a href="mailbox-message.html">
+								<i class="entypo-attach"></i>
+								<span class="title">View Message</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="forms-main.html">
+						<i class="entypo-doc-text"></i>
+						<span class="title">Forms</span>
+					</a>
+					<ul>
+						<li>
+							<a href="forms-main.html">
+								<span class="title">Basic Elements</span>
+							</a>
+						</li>
+						<li>
+							<a href="forms-advanced.html">
+								<span class="title">Advanced Plugins</span>
+							</a>
+						</li>
+						<li>
+							<a href="forms-wizard.html">
+								<span class="title">Form Wizard</span>
+							</a>
+						</li>
+						<li>
+							<a href="forms-validation.html">
+								<span class="title">Data Validation</span>
+							</a>
+						</li>
+						<li>
+							<a href="forms-masks.html">
+								<span class="title">Input Masks</span>
+							</a>
+						</li>
+						<li>
+							<a href="forms-sliders.html">
+								<span class="title">Sliders</span>
+							</a>
+						</li>
+						<li>
+							<a href="forms-file-upload.html">
+								<span class="title">File Upload</span>
+							</a>
+						</li>
+						<li>
+							<a href="forms-wysiwyg.html">
+								<span class="title">Editors</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="tables-main.html">
+						<i class="entypo-window"></i>
+						<span class="title">Tables</span>
+					</a>
+					<ul>
+						<li>
+							<a href="tables-main.html">
+								<span class="title">Basic Tables</span>
+							</a>
+						</li>
+						<li>
+							<a href="tables-datatable.html">
+								<span class="title">Data Tables</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="extra-icons.html">
+						<i class="entypo-bag"></i>
+						<span class="title">Extra</span>
+						<span class="badge badge-info badge-roundless">New Items</span>
+					</a>
+					<ul>
+						<li>
+							<a href="extra-icons.html">
+								<span class="title">Icons</span>
+								<span class="badge badge-success">3</span>
+							</a>
+							<ul>
+								<li>
+									<a href="extra-icons.html">
+										<span class="title">Font Awesome</span>
+									</a>
+								</li>
+								<li>
+									<a href="extra-icons-entypo.html">
+										<span class="title">Entypo</span>
+									</a>
+								</li>
+								<li>
+									<a href="extra-icons-glyphicons.html">
+										<span class="title">Glyph Icons</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="extra-portlets.html">
+								<span class="title">Portlets</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-google-maps.html">
+								<span class="title">Maps</span>
+							</a>
+							<ul>
+								<li>
+									<a href="extra-google-maps.html">
+										<span class="title">Google Maps</span>
+									</a>
+								</li>
+								<li>
+									<a href="extra-vector-maps.html">
+										<span class="title">Vector Maps</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="extra-chat-api.html">
+								<span class="title">Chat API</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-calendar.html">
+								<span class="title">Calendar</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-calendar-2.html">
+								<span class="title">Calendar 2</span>
+								<span class="badge badge-secondary badge-roundless">New</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-notes.html">
+								<span class="title">Notes</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-lockscreen.html">
+								<span class="title">Lockscreen</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-login.html">
+								<span class="title">Login</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-register.html">
+								<span class="title">Register</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-invoice.html">
+								<span class="title">Invoice</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-gallery.html">
+								<span class="title">Gallery</span>
+							</a>
+							<ul>
+								<li>
+									<a href="extra-gallery.html">
+										<span class="title">Albums</span>
+									</a>
+								</li>
+								<li>
+									<a href="extra-gallery-single.html">
+										<span class="title">Single Album</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="extra-members.html">
+								<span class="title">Members</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-profile.html">
+								<span class="title">Profile</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-404.html">
+								<span class="title">404 Page</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-blank-page.html">
+								<span class="title">Blank Page</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-timeline.html">
+								<span class="title">Timeline</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-comments.html">
+								<span class="title">Comments</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-timeline-centered.html">
+								<span class="title">Timeline Centered</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-tocify.html">
+								<span class="title">Tocify</span>
+							</a>
+						</li>
+						<li>
+							<a href="ui-notifications.html">
+								<span class="title">Notifications</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-new-post.html">
+								<span class="title">New Post</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-settings.html">
+								<span class="title">Settings</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-scrollbox.html">
+								<span class="title">Scrollbox</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-image-crop.html">
+								<span class="title">Image Crop</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-search.html">
+								<span class="title">Search Page</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-language-selector.html">
+								<span class="title">Language Selector</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-nestable.html">
+								<span class="title">Nestable Lists</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-file-tree.html">
+								<span class="title">File Tree</span>
+							</a>
+						</li>
+						<li>
+							<a href="extra-load-progress.html">
+								<span class="title">Load Progress</span>
+							</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="charts.html">
+						<i class="entypo-chart-bar"></i>
+						<span class="title">Charts</span>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<i class="entypo-flow-tree"></i>
+						<span class="title">Menu Levels</span>
+					</a>
+					<ul>
+						<li>
+							<a href="#">
+								<i class="entypo-flow-line"></i>
+								<span class="title">Menu Level 1.1</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="entypo-flow-line"></i>
+								<span class="title">Menu Level 1.2</span>
+							</a>
+						</li>
+						<li>
+							<a href="#">
+								<i class="entypo-flow-line"></i>
+								<span class="title">Menu Level 1.3</span>
+							</a>
+							<ul>
+								<li>
+									<a href="#">
+										<i class="entypo-flow-parallel"></i>
+										<span class="title">Menu Level 2.1</span>
+									</a>
+								</li>
+								<li>
+									<a href="#">
+										<i class="entypo-flow-parallel"></i>
+										<span class="title">Menu Level 2.2</span>
+									</a>
+									<ul>
+										<li>
+											<a href="#">
+												<i class="entypo-flow-cascade"></i>
+												<span class="title">Menu Level 3.1</span>
+											</a>
+											<ul>
+												<li>
+													<a href="#">
+														<i class="entypo-flow-branch"></i>
+														<span class="title">Menu Level 4.1</span>
+													</a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a href="#">
+												<i class="entypo-flow-cascade"></i>
+												<span class="title">Menu Level 3.2</span>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a href="#">
+										<i class="entypo-flow-parallel"></i>
+										<span class="title">Menu Level 2.3</span>
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ul>
+			
+		</div>
+
+	</div>
 
 	<div class="main-content">
-
-		<?php include 'components/top_bar.php';?>
-
-
+				
 		<script type="text/javascript">
 		jQuery(document).ready(function($)
 		{
@@ -86,10 +719,11 @@
 					"showMethod": "fadeIn",
 					"hideMethod": "fadeOut"
 				};
-
+		
+				toastr.success("You have been awarded with 1 year free subscription. Enjoy it!", "Account Subcription Updated", opts);
 			}, 3000);
-
-
+		
+		
 			// Sparkline Charts
 			$('.inlinebar').sparkline('html', {type: 'bar', barColor: '#ff6264'} );
 			$('.inlinebar-2').sparkline('html', {type: 'bar', barColor: '#445982'} );
@@ -99,8 +733,8 @@
 			$('.linechart').sparkline();
 			$('.pageviews').sparkline('html', {type: 'bar', height: '30px', barColor: '#ff6264'} );
 			$('.uniquevisitors').sparkline('html', {type: 'bar', height: '30px', barColor: '#00b19d'} );
-
-
+		
+		
 			$(".monthly-sales").sparkline([1,2,3,5,6,7,2,3,3,4,3,5,7,2,4,3,5,4,5,6,3,2], {
 				type: 'bar',
 				barColor: '#485671',
@@ -108,23 +742,23 @@
 				barWidth: 10,
 				barSpacing: 2
 			});
-
-
+		
+		
 			// JVector Maps
 			var map = $("#map");
-
+		
 			map.vectorMap({
 				map: 'europe_merc_en',
 				zoomMin: '3',
 				backgroundColor: '#383f47',
 				focusOn: { x: 0.5, y: 0.8, scale: 3 }
 			});
-
-
-
+		
+		
+		
 			// Line Charts
 			var line_chart_demo = $("#line-chart-demo");
-
+		
 			var line_chart = Morris.Line({
 				element: 'line-chart-demo',
 				data: [
@@ -141,15 +775,15 @@
 				labels: ['October 2013', 'November 2013'],
 				redraw: true
 			});
-
+		
 			line_chart_demo.parent().attr('style', '');
-
-
+		
+		
 			// Donut Chart
 			var donut_chart_demo = $("#donut-chart-demo");
-
+		
 			donut_chart_demo.parent().show();
-
+		
 			var donut_chart = Morris.Donut({
 				element: 'donut-chart-demo',
 				data: [
@@ -159,15 +793,15 @@
 				],
 				colors: ['#707f9b', '#455064', '#242d3c']
 			});
-
+		
 			donut_chart_demo.parent().attr('style', '');
-
-
+		
+		
 			// Area Chart
 			var area_chart_demo = $("#area-chart-demo");
-
+		
 			area_chart_demo.parent().show();
-
+		
 			var area_chart = Morris.Area({
 				element: 'area-chart-demo',
 				data: [
@@ -184,22 +818,22 @@
 				labels: ['Series A', 'Series B'],
 				lineColors: ['#303641', '#576277']
 			});
-
+		
 			area_chart_demo.parent().attr('style', '');
-
-
-
-
+		
+		
+		
+		
 			// Rickshaw
 			var seriesData = [ [], [] ];
-
+		
 			var random = new Rickshaw.Fixtures.RandomData(50);
-
+		
 			for (var i = 0; i < 50; i++)
 			{
 				random.addData(seriesData);
 			}
-
+		
 			var graph = new Rickshaw.Graph( {
 				element: document.getElementById("rickshaw-chart-demo"),
 				height: 193,
@@ -217,99 +851,102 @@
 					}
 				]
 			} );
-
+		
 			graph.render();
-
+		
 			var hoverDetail = new Rickshaw.Graph.HoverDetail( {
 				graph: graph,
 				xFormatter: function(x) {
 					return new Date(x * 1000).toString();
 				}
 			} );
-
+		
 			var legend = new Rickshaw.Graph.Legend( {
 				graph: graph,
 				element: document.getElementById('rickshaw-legend')
 			} );
-
+		
 			var highlighter = new Rickshaw.Graph.Behavior.Series.Highlight( {
 				graph: graph,
 				legend: legend
 			} );
-
+		
 			setInterval( function() {
 				random.removeData(seriesData);
 				random.addData(seriesData);
 				graph.update();
-
+		
 			}, 500 );
 		});
-
-
+		
+		
 		function getRandomInt(min, max)
 		{
 			return Math.floor(Math.random() * (max - min + 1)) + min;
 		}
 		</script>
-
-
+		
+		
 		<div class="row">
 			<div class="col-sm-3 col-xs-6">
-
+		
 				<div class="tile-stats tile-red">
 					<div class="icon"><i class="entypo-users"></i></div>
-
-					<h3>Add Attendance</h3>
+					<div class="num" data-start="0" data-end="83" data-postfix="" data-duration="1500" data-delay="0">0</div>
+		
+					<h3>Registered users</h3>
+					<p>so far in our blog, and our website.</p>
 				</div>
-
+		
 			</div>
-
+		
 			<div class="col-sm-3 col-xs-6">
-
+		
 				<div class="tile-stats tile-green">
 					<div class="icon"><i class="entypo-chart-bar"></i></div>
 					<div class="num" data-start="0" data-end="135" data-postfix="" data-duration="1500" data-delay="600">0</div>
-
-					<h3>Total Students</h3>
-					<p>In all your batches</p>
+		
+					<h3>Daily Visitors</h3>
+					<p>this is the average value.</p>
 				</div>
-
+		
 			</div>
-
+		
 			<div class="col-sm-3 col-xs-6">
-
+		
 				<div class="tile-stats tile-aqua">
 					<div class="icon"><i class="entypo-mail"></i></div>
-					<div class="num" data-start="0" data-end="23" data-postfix="" data-duration="1500" data-delay="1200">135</div>
-
-					<h3>Students Per Batch</h3>
-					<p>this is average.</p>
+					<div class="num" data-start="0" data-end="23" data-postfix="" data-duration="1500" data-delay="1200">0</div>
+		
+					<h3>New Messages</h3>
+					<p>messages per day.</p>
 				</div>
-
+		
 			</div>
-
+		
 			<div class="col-sm-3 col-xs-6">
-
+		
 				<div class="tile-stats tile-blue">
 					<div class="icon"><i class="entypo-rss"></i></div>
 					<div class="num" data-start="0" data-end="52" data-postfix="" data-duration="1500" data-delay="1800">0</div>
-
-					<h3>Batches</h3>
+		
+					<h3>Subscribers</h3>
+					<p>on our site right now.</p>
 				</div>
-
+		
 			</div>
 		</div>
-
+		
 		<br />
-
+		
 		<div class="row">
 			<div class="col-sm-8">
-
+		
 				<div class="panel panel-primary" id="charts_env">
-
+		
 					<div class="panel-heading">
 						<div class="panel-title">Site Stats</div>
-
+		
 						<div class="panel-options">
 							<ul class="nav nav-tabs">
 								<li class=""><a href="#area-chart" data-toggle="tab">Area Chart</a></li>
@@ -318,29 +955,29 @@
 							</ul>
 						</div>
 					</div>
-
+		
 					<div class="panel-body">
-
+		
 						<div class="tab-content">
-
+		
 							<div class="tab-pane" id="area-chart">
 								<div id="area-chart-demo" class="morrischart" style="height: 300px"></div>
 							</div>
-
+		
 							<div class="tab-pane active" id="line-chart">
 								<div id="line-chart-demo" class="morrischart" style="height: 300px"></div>
 							</div>
-
+		
 							<div class="tab-pane" id="pie-chart">
 								<div id="donut-chart-demo" class="morrischart" style="height: 300px;"></div>
 							</div>
-
+		
 						</div>
-
+		
 					</div>
-
+		
 					<table class="table table-bordered table-responsive">
-
+		
 						<thead>
 							<tr>
 								<th width="50%" class="col-padding-1">
@@ -349,7 +986,7 @@
 										<small>54,127</small>
 									</div>
 									<span class="pull-right pageviews">4,3,5,4,5,6,5</span>
-
+		
 								</th>
 								<th width="50%" class="col-padding-1">
 									<div class="pull-left">
@@ -360,15 +997,15 @@
 								</th>
 							</tr>
 						</thead>
-
+		
 					</table>
-
+		
 				</div>
-
+		
 			</div>
-
+		
 			<div class="col-sm-4">
-
+		
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<div class="panel-title">
@@ -378,7 +1015,7 @@
 								<small>current server uptime</small>
 							</h4>
 						</div>
-
+		
 						<div class="panel-options">
 							<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
 							<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
@@ -386,24 +1023,24 @@
 							<a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
 						</div>
 					</div>
-
+		
 					<div class="panel-body no-padding">
 						<div id="rickshaw-chart-demo">
 							<div id="rickshaw-legend"></div>
 						</div>
 					</div>
 				</div>
-
+		
 			</div>
 		</div>
-
-
+		
+		
 		<br />
-
+		
 		<div class="row">
-
+		
 			<div class="col-sm-4">
-
+		
 				<div class="panel panel-primary">
 					<table class="table table-bordered table-responsive">
 						<thead>
@@ -424,15 +1061,15 @@
 						</tbody>
 					</table>
 				</div>
-
+		
 			</div>
-
+		
 			<div class="col-sm-8">
-
+		
 				<div class="panel panel-primary">
 					<div class="panel-heading">
 						<div class="panel-title">Latest Updated Profiles</div>
-
+		
 						<div class="panel-options">
 							<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
 							<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
@@ -440,7 +1077,7 @@
 							<a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
 						</div>
 					</div>
-
+		
 					<table class="table table-bordered table-responsive">
 						<thead>
 							<tr>
@@ -450,7 +1087,7 @@
 								<th>Activity</th>
 							</tr>
 						</thead>
-
+		
 						<tbody>
 							<tr>
 								<td>1</td>
@@ -458,49 +1095,49 @@
 								<td>CEO</td>
 								<td class="text-center"><span class="inlinebar">4,3,5,4,5,6</span></td>
 							</tr>
-
+		
 							<tr>
 								<td>2</td>
 								<td>Filan Fisteku</td>
 								<td>Member</td>
 								<td class="text-center"><span class="inlinebar-2">1,3,4,5,3,5</span></td>
 							</tr>
-
+		
 							<tr>
 								<td>3</td>
 								<td>Arlind Nushi</td>
 								<td>Co-founder</td>
 								<td class="text-center"><span class="inlinebar-3">5,3,2,5,4,5</span></td>
 							</tr>
-
+		
 						</tbody>
 					</table>
 				</div>
-
+		
 			</div>
-
+		
 		</div>
-
+		
 		<br />
-
-
+		
+		
 		<script type="text/javascript">
 			// Code used to add Todo Tasks
 			jQuery(document).ready(function($)
 			{
 				var $todo_tasks = $("#todo_tasks");
-
+		
 				$todo_tasks.find('input[type="text"]').on('keydown', function(ev)
 				{
 					if(ev.keyCode == 13)
 					{
 						ev.preventDefault();
-
+		
 						if($.trim($(this).val()).length)
 						{
 							var $todo_entry = $('<li><div class="checkbox checkbox-replace color-white"><input type="checkbox" /><label>'+$(this).val()+'</label></div></li>');
 							$(this).val('');
-
+		
 							$todo_entry.appendTo($todo_tasks.find('.todo-list'));
 							$todo_entry.hide().slideDown('fast');
 							replaceCheckboxes();
@@ -509,26 +1146,26 @@
 				});
 			});
 		</script>
-
+		
 		<div class="row">
-
+		
 			<div class="col-sm-3">
 				<div class="tile-block" id="todo_tasks">
-
+		
 					<div class="tile-header">
 						<i class="entypo-list"></i>
-
+		
 						<a href="#">
 							Tasks
 							<span>To do list, tick one.</span>
 						</a>
 					</div>
-
+		
 					<div class="tile-content">
-
+		
 						<input type="text" class="form-control" placeholder="Add Task" />
-
-
+		
+		
 						<ul class="todo-list">
 							<li>
 								<div class="checkbox checkbox-replace color-white">
@@ -536,28 +1173,28 @@
 									<label>Website Design</label>
 								</div>
 							</li>
-
+		
 							<li>
 								<div class="checkbox checkbox-replace color-white">
 									<input type="checkbox" id="task-2" checked />
 									<label>Slicing</label>
 								</div>
 							</li>
-
+		
 							<li>
 								<div class="checkbox checkbox-replace color-white">
 									<input type="checkbox" id="task-3" />
 									<label>WordPress Integration</label>
 								</div>
 							</li>
-
+		
 							<li>
 								<div class="checkbox checkbox-replace color-white">
 									<input type="checkbox" id="task-4" />
 									<label>SEO Optimize</label>
 								</div>
 							</li>
-
+		
 							<li>
 								<div class="checkbox checkbox-replace color-white">
 									<input type="checkbox" id="task-5" checked="" />
@@ -565,23 +1202,23 @@
 								</div>
 							</li>
 						</ul>
-
+		
 					</div>
-
+		
 					<div class="tile-footer">
 						<a href="#">View all tasks</a>
 					</div>
-
+		
 				</div>
 			</div>
-
+		
 			<div class="col-sm-9">
-
+		
 				<script type="text/javascript">
 					jQuery(document).ready(function($)
 					{
 						var map = $("#map-2");
-
+		
 						map.vectorMap({
 							map: 'europe_merc_en',
 							zoomMin: '3',
@@ -590,275 +1227,126 @@
 						});
 					});
 				</script>
-
+		
 				<div class="tile-group">
-
+		
 					<div class="tile-left">
 						<div class="tile-entry">
 							<h3>Map</h3>
 							<span>top visitors location</span>
 						</div>
-
+		
 						<div class="tile-entry">
 							<img src="assets/images/sample-al.png" alt="" class="pull-right op" />
-
+		
 							<h4>Albania</h4>
 							<span>25%</span>
 						</div>
-
+		
 						<div class="tile-entry">
 							<img src="assets/images/sample-it.png" alt="" class="pull-right op" />
-
+		
 							<h4>Italy</h4>
 							<span>18%</span>
 						</div>
-
+		
 						<div class="tile-entry">
 							<img src="assets/images/sample-au.png" alt="" class="pull-right op" />
-
+		
 							<h4>Austria</h4>
 							<span>15%</span>
 						</div>
 					</div>
-
+		
 					<div class="tile-right">
-
+		
 						<div id="map-2" class="map"></div>
-
+		
 					</div>
-
+		
 				</div>
-
+		
 			</div>
-
-		</div>
-
-		<div class="row">
-			<div class="col-md-12">
-
-				<div class="panel panel-primary" data-collapsed="0">
-
-					<div class="panel-heading">
-						<div class="panel-title">
-							Default Form Inputs
-						</div>
-
-						<div class="panel-options">
-							<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
-							<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
-							<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
-							<a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
-						</div>
-					</div>
-
-					<div class="panel-body">
-
-						<form role="form" class="form-horizontal form-groups-bordered">
-
-							<div class="form-group">
-								<label for="field-1" class="col-sm-3 control-label">Field 1</label>
-
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="field-1" placeholder="Placeholder">
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="field-2" class="col-sm-3 control-label">Disabled</label>
-
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="field-2" placeholder="Placeholder" disabled>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="field-3" class="col-sm-3 control-label">Password</label>
-
-								<div class="col-sm-5">
-									<input type="password" class="form-control" id="field-3" placeholder="Placeholder (Password)">
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="field-1" class="col-sm-3 control-label">File Field</label>
-
-								<div class="col-sm-5">
-									<input type="file" class="form-control" id="field-file" placeholder="Placeholder">
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="field-ta" class="col-sm-3 control-label">Textarea</label>
-
-								<div class="col-sm-5">
-									<textarea class="form-control" id="field-ta" placeholder="Textarea"></textarea>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label for="field-ta" class="col-sm-3 control-label">Autogrow</label>
-
-								<div class="col-sm-5">
-									<textarea class="form-control autogrow" id="field-ta" placeholder="I will grow as you type new lines."></textarea>
-								</div>
-							</div>
-
-							<div class="form-group has-error">
-								<label for="field-4" class="col-sm-3 control-label">Error field</label>
-
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="field-4" placeholder="Placeholder">
-								</div>
-							</div>
-
-							<div class="form-group has-warning">
-								<label for="field-5" class="col-sm-3 control-label">Warning field</label>
-
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="field-5" placeholder="Placeholder">
-								</div>
-							</div>
-
-							<div class="form-group has-success">
-								<label for="field-6" class="col-sm-3 control-label">Success field</label>
-
-								<div class="col-sm-5">
-									<input type="text" class="form-control" id="field-6" placeholder="Placeholder">
-								</div>
-							</div>
-
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Select List</label>
-
-								<div class="col-sm-5">
-									<select class="form-control">
-										<option>Option 1</option>
-										<option>Option 2</option>
-										<option>Option 3</option>
-										<option>Option 4</option>
-										<option>Option 5</option>
-									</select>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<div class="col-sm-offset-3 col-sm-5">
-									<div class="checkbox">
-										<label>
-											<input type="checkbox">Checkbox 1
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox">Checkbox 2
-										</label>
-									</div>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<div class="col-sm-offset-3 col-sm-5">
-									<div class="radio">
-										<label>
-											<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>Radio Input 1
-										</label>
-									</div>
-									<div class="radio">
-										<label>
-											<input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">Radio Input 2
-										</label>
-									</div>
-								</div>
-							</div>
-
-							<div class="form-group">
-								<div class="col-sm-offset-3 col-sm-5">
-									<button type="submit" class="btn btn-default">Sign in</button>
-								</div>
-							</div>
-						</form>
-
-					</div>
-
-				</div>
-
-			</div>
+		
 		</div>
 		
 		<!-- Footer -->
-		<?php include 'components/footer.php';?>
+		<footer class="main">
+			
+			&copy; 2014 <strong>Neon</strong> Admin Theme by <a href="http://laborator.co" target="_blank">Laborator</a>
+		
+		</footer>
 	</div>
 
-
+		
 	<div id="chat" class="fixed" data-current-user="Art Ramadani" data-order-by-status="1" data-max-chat-history="25">
-
+	
 		<div class="chat-inner">
-
-
+	
+	
 			<h2 class="chat-header">
 				<a href="#" class="chat-close"><i class="entypo-cancel"></i></a>
-
+	
 				<i class="entypo-users"></i>
 				Chat
 				<span class="badge badge-success is-hidden">0</span>
 			</h2>
-
-
+	
+	
 			<div class="chat-group" id="group-1">
 				<strong>Favorites</strong>
-
+	
 				<a href="#" id="sample-user-123" data-conversation-history="#sample_history"><span class="user-status is-online"></span> <em>Catherine J. Watkins</em></a>
 				<a href="#"><span class="user-status is-online"></span> <em>Nicholas R. Walker</em></a>
 				<a href="#"><span class="user-status is-busy"></span> <em>Susan J. Best</em></a>
 				<a href="#"><span class="user-status is-offline"></span> <em>Brandon S. Young</em></a>
 				<a href="#"><span class="user-status is-idle"></span> <em>Fernando G. Olson</em></a>
 			</div>
-
-
+	
+	
 			<div class="chat-group" id="group-2">
 				<strong>Work</strong>
-
+	
 				<a href="#"><span class="user-status is-offline"></span> <em>Robert J. Garcia</em></a>
 				<a href="#" data-conversation-history="#sample_history_2"><span class="user-status is-offline"></span> <em>Daniel A. Pena</em></a>
 				<a href="#"><span class="user-status is-busy"></span> <em>Rodrigo E. Lozano</em></a>
 			</div>
-
-
+	
+	
 			<div class="chat-group" id="group-3">
 				<strong>Social</strong>
-
+	
 				<a href="#"><span class="user-status is-busy"></span> <em>Velma G. Pearson</em></a>
 				<a href="#"><span class="user-status is-offline"></span> <em>Margaret R. Dedmon</em></a>
 				<a href="#"><span class="user-status is-online"></span> <em>Kathleen M. Canales</em></a>
 				<a href="#"><span class="user-status is-offline"></span> <em>Tracy J. Rodriguez</em></a>
 			</div>
-
+	
 		</div>
-
+	
 		<!-- conversation template -->
 		<div class="chat-conversation">
-
+	
 			<div class="conversation-header">
 				<a href="#" class="conversation-close"><i class="entypo-cancel"></i></a>
-
+	
 				<span class="user-status"></span>
 				<span class="display-name"></span>
 				<small></small>
 			</div>
-
+	
 			<ul class="conversation-body">
 			</ul>
-
+	
 			<div class="chat-textarea">
 				<textarea class="form-control autogrow" placeholder="Type your message"></textarea>
 			</div>
-
+	
 		</div>
-
+	
 	</div>
-
-
+	
+	
 	<!-- Chat Histories -->
 	<ul class="chat-history" id="sample_history">
 		<li>
@@ -866,29 +1354,29 @@
 			<p>Are you here?</p>
 			<span class="time">09:00</span>
 		</li>
-
+	
 		<li class="opponent">
 			<span class="user">Catherine J. Watkins</span>
 			<p>This message is pre-queued.</p>
 			<span class="time">09:25</span>
 		</li>
-
+	
 		<li class="opponent">
 			<span class="user">Catherine J. Watkins</span>
 			<p>Whohoo!</p>
 			<span class="time">09:26</span>
 		</li>
-
+	
 		<li class="opponent unread">
 			<span class="user">Catherine J. Watkins</span>
 			<p>Do you like it?</p>
 			<span class="time">09:27</span>
 		</li>
 	</ul>
-
-
-
-
+	
+	
+	
+	
 	<!-- Chat Histories -->
 	<ul class="chat-history" id="sample_history_2">
 		<li class="opponent unread">
@@ -896,7 +1384,7 @@
 			<p>I am going out.</p>
 			<span class="time">08:21</span>
 		</li>
-
+	
 		<li class="opponent unread">
 			<span class="user">Daniel A. Pena</span>
 			<p>Call me when you see this message.</p>
@@ -904,74 +1392,9 @@
 		</li>
 	</ul>
 
-
+	
 </div>
 
-	<!-- Sample Modal (Default skin) -->
-	<div class="modal fade" id="sample-modal-dialog-1">
-		<div class="modal-dialog">
-			<div class="modal-content">
-
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Widget Options - Default Modal</h4>
-				</div>
-
-				<div class="modal-body">
-					<p>Now residence dashwoods she excellent you. Shade being under his bed her. Much read on as draw. Blessing for ignorant exercise any yourself unpacked. Pleasant horrible but confined day end marriage. Eagerness furniture set preserved far recommend. Did even but nor are most gave hope. Secure active living depend son repair day ladies now.</p>
-				</div>
-
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Sample Modal (Skin inverted) -->
-	<div class="modal invert fade" id="sample-modal-dialog-2">
-		<div class="modal-dialog">
-			<div class="modal-content">
-
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Widget Options - Inverted Skin Modal</h4>
-				</div>
-
-				<div class="modal-body">
-					<p>Now residence dashwoods she excellent you. Shade being under his bed her. Much read on as draw. Blessing for ignorant exercise any yourself unpacked. Pleasant horrible but confined day end marriage. Eagerness furniture set preserved far recommend. Did even but nor are most gave hope. Secure active living depend son repair day ladies now.</p>
-				</div>
-
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- Sample Modal (Skin gray) -->
-	<div class="modal gray fade" id="sample-modal-dialog-3">
-		<div class="modal-dialog">
-			<div class="modal-content">
-
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title">Widget Options - Gray Skin Modal</h4>
-				</div>
-
-				<div class="modal-body">
-					<p>Now residence dashwoods she excellent you. Shade being under his bed her. Much read on as draw. Blessing for ignorant exercise any yourself unpacked. Pleasant horrible but confined day end marriage. Eagerness furniture set preserved far recommend. Did even but nor are most gave hope. Secure active living depend son repair day ladies now.</p>
-				</div>
-
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				</div>
-			</div>
-		</div>
-	</div>
 
 
 
