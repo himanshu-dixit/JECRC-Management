@@ -1,5 +1,5 @@
 <footer class="main">
 
-	&copy; 2014 <strong>Neon</strong> Admin Theme by <a href="http://laborator.co" target="_blank">Laborator</a>
+Developed And Managed By Department of Information Technology
 
 </footer>
