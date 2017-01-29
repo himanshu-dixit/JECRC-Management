@@ -68,7 +68,10 @@
 
 
 		<div class="row">
-			<center><h2 style="margin-bottom:30px;">Manage</h2></center>
+			<center><h2 style="margin-bottom:30px;">Add Attendance</h2>
+				<h4>30/01/2017 For DBMS Lecture</h4>
+				<br>
+			</center>
 			<div class="row">
 
 
@@ -78,63 +81,54 @@
 						<div class="icon"><i class="entypo-chart-bar"></i></div>
 
 
-						<h3>View Reports</h3>
-						<p>30 Students</p>
-						<p>701-795</p>
-		  			<p>4 Lectures Per Week</p>
+						<h3>795</h3>
+						<p>Himanshu Dixit</p>
+
+
 					</div></div>
-					<a href="add_lecturer.php">
 	<div class="col-sm-3 col-xs-12">
 					<div class="tile-stats tile-red">
 						<div class="icon"><i class="entypo-chart-bar"></i></div>
 
-								<h3>Add Lecturer</h3>
-								<p>30 Students</p>
-								<p>701-795</p>
-					  		<p>4 Lectures Per Week</p>
+
+						<h3>796</h3>
+						<p>Himanshu Dixit</p>
+
+
 	      	</div></div>
-				</a>
-					<a href="add_batch.php">
 	<div class="col-sm-3 col-xs-12">
 
-					<div class="tile-stats tile-aqua">
-							<div class="icon"><i class="entypo-chart-bar"></i></div>
-
-							<h3>Add Classes</h3>
-							<p>30 Students</p>
-							<p>701-795</p>
-			  			<p>4 Lectures Per Week</p>
-					</div></div>
-				</a>
-	<div class="col-sm-3 col-xs-12">
-					<div class="tile-stats tile-blue">
-							<div class="icon"><i class="entypo-chart-bar"></i></div>
-
-							<h3>Manage Students</h3>
-							<p>30 Students</p>
-							<p>701-795</p>
-			  			<p>4 Lectures Per Week</p>
-					</div>
-				</div>
-				<a href="add_student.php">
-				<div class="col-sm-3 col-xs-12">
-
-					<div class="tile-stats tile-purple">
+					<div class="tile-stats tile-green">
 						<div class="icon"><i class="entypo-chart-bar"></i></div>
 
 
-						<h3>Add Student</h3>
-						<p>30 Students</p>
-						<p>701-795</p>
-						<p>4 Lectures Per Week</p>
-					</div></div>
-				</a>
+						<h3>797</h3>
+						<p>Himanshu Dixit</p>
 
-						</div>
+
+					</div></div>
+	<div class="col-sm-3 col-xs-12">
+					<div class="tile-stats tile-red">
+						<div class="icon"><i class="entypo-chart-bar"></i></div>
+
+
+						<h3>798</h3>
+						<p>Himanshu Dixit</p>
+
+
+					</div>
+				</div>				</div>
 
 
 			</div>
-
+			<br>
+			<div class="row">
+				<center><h3>Student Present/Total Student</h3></center>
+					<center><h2>40/45</h2></center>
+			</div>
+			<div class="row" >
+				<center><button type="button" class="btn btn-primary" style="width:150px;height:45px;margin-top:20px;">Submit</button></center>
+			</div>
 
 		</div>
 

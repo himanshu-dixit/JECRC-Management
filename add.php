@@ -68,10 +68,10 @@
 
 
 		<div class="row">
-			<center><h2 style="margin-bottom:30px;">Add Attendance</h2></center>
+			<center><h2 style="margin-bottom:30px;">Add Lecturer</h2></center>
 			<div class="row">
 
-
+				<a href="interface.php">
 				<div class="col-sm-3 col-xs-12">
 
 					<div class="tile-stats tile-green">
@@ -82,7 +82,9 @@
 						<p>30 Students</p>
 						<p>701-795</p>
 		  			<p>4 Lectures Per Week</p>
-					</div></div>
+					</div>
+				</div>
+					</a>
 	<div class="col-sm-3 col-xs-12">
 					<div class="tile-stats tile-red">
 						<div class="icon"><i class="entypo-chart-bar"></i></div>

@@ -51,6 +51,11 @@
 	.tile-red:hover{
 		cursor: pointer;
 	}
+	.form-group{
+		margin-bottom: 20px !important;
+		height: 36px;
+		padding: 0 20%;
+	}
 	</style>
 
 </head>
@@ -68,73 +73,68 @@
 
 
 		<div class="row">
-			<center><h2 style="margin-bottom:30px;">Manage</h2></center>
+			<center><h2 style="margin-bottom:30px;">Add Batch</h2></center>
 			<div class="row">
-
-
-				<div class="col-sm-3 col-xs-12">
-
-					<div class="tile-stats tile-green">
-						<div class="icon"><i class="entypo-chart-bar"></i></div>
-
-
-						<h3>View Reports</h3>
-						<p>30 Students</p>
-						<p>701-795</p>
-		  			<p>4 Lectures Per Week</p>
-					</div></div>
-					<a href="add_lecturer.php">
-	<div class="col-sm-3 col-xs-12">
-					<div class="tile-stats tile-red">
-						<div class="icon"><i class="entypo-chart-bar"></i></div>
-
-								<h3>Add Lecturer</h3>
-								<p>30 Students</p>
-								<p>701-795</p>
-					  		<p>4 Lectures Per Week</p>
-	      	</div></div>
-				</a>
-					<a href="add_batch.php">
-	<div class="col-sm-3 col-xs-12">
-
-					<div class="tile-stats tile-aqua">
-							<div class="icon"><i class="entypo-chart-bar"></i></div>
-
-							<h3>Add Classes</h3>
-							<p>30 Students</p>
-							<p>701-795</p>
-			  			<p>4 Lectures Per Week</p>
-					</div></div>
-				</a>
-	<div class="col-sm-3 col-xs-12">
-					<div class="tile-stats tile-blue">
-							<div class="icon"><i class="entypo-chart-bar"></i></div>
-
-							<h3>Manage Students</h3>
-							<p>30 Students</p>
-							<p>701-795</p>
-			  			<p>4 Lectures Per Week</p>
-					</div>
-				</div>
-				<a href="add_student.php">
-				<div class="col-sm-3 col-xs-12">
-
-					<div class="tile-stats tile-purple">
-						<div class="icon"><i class="entypo-chart-bar"></i></div>
-
-
-						<h3>Add Student</h3>
-						<p>30 Students</p>
-						<p>701-795</p>
-						<p>4 Lectures Per Week</p>
-					</div></div>
-				</a>
-
+				<form method="post" action="">
+					<div class="form-group">
+						<label for="field-1" class="col-sm-3 control-label">Subject Name</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" id="lecturer_name" placeholder="Name">
 						</div>
+					</div>
+
+					<div class="form-group">
+								<label class="col-sm-3 control-label">Select Department</label>
+
+								<div class="col-sm-9">
+									<select class="form-control">
+										<option>Select</option>
+										<option>Computer Science</option>
+										<option>Electronics</option>
+										<option>Electrical</option>
+										<option>Information Technology</option>
+									</select>
+								</div>
+							</div>
+							<div class="form-group">
+										<label class="col-sm-3 control-label">Select Semester</label>
+
+										<div class="col-sm-9">
+											<select class="form-control">
+												<option>Select</option>
+												<option>Second</option>
+												<option>Fourth</option>
+												<option>Sixth</option>
+												<option>Eighth</option>
+											</select>
+										</div>
+									</div>
+							<div class="form-group">
+								<label for="field-1" class="col-sm-3 control-label">Starting Roll No.</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="lecturer_email" placeholder="Email">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="field-1" class="col-sm-3 control-label">Last Roll No.</label>
+								<div class="col-sm-9">
+									<input type="text" class="form-control" id="lecturer_email" placeholder="Email">
+								</div>
+							</div>
+
+
+
+
+							<div class="row" >
+								<center><input type="button" class="btn btn-primary" style="width:150px;height:45px;margin-top:20px;" value="Add Batch"></input></center>
+							</div>
+
+
+				</form>
+			</div>
 
 
 			</div>
-
 
 		</div>
 
