@@ -33,10 +33,10 @@
 
 				<div class="sui-normal">
 					<a href="#" class="user-link">
-						<img src="assets/images/thumb-1.png" alt="" class="img-circle" />
+						<img src="https://www.greenmellenmedia.com/wp-content/uploads/slack-chat.png" alt="" class="img-circle" height="60px" width="60px"/>
 
 						<span>Welcome,</span>
-						<strong>Art Ramadani</strong>
+						<strong>Naveen Kedia</strong>
 					</a>
 				</div>
 

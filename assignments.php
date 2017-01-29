@@ -51,11 +51,6 @@
 	.tile-red:hover{
 		cursor: pointer;
 	}
-	.form-group{
-		margin-bottom: 20px !important;
-		height: 36px;
-		padding: 0 20%;
-	}
 	</style>
 
 </head>
@@ -73,107 +68,58 @@
 
 
 		<div class="row">
-			<center><h2 style="margin-bottom:30px;">Add Batch</h2></center>
+			<center><h2 style="margin-bottom:30px;">Assignments</h2></center>
 			<div class="row">
-				<form method="post" action="">
-					<div class="form-group">
-						<label for="field-1" class="col-sm-3 control-label">Subject Name</label>
-						<div class="col-sm-9">
-							<input type="text" class="form-control" id="lecturer_name" placeholder="Name">
-						</div>
+
+				<a href="interface.php">
+				<div class="col-sm-3 col-xs-12">
+
+					<div class="tile-stats tile-green">
+						<div class="icon"><i class="entypo-chart-bar"></i></div>
+
+
+						<h3>3rd Sem IT A1</h3>
+						<p>30 Students</p>
+						<p>701-795</p>
+		  			<p>4 Lectures Per Week</p>
 					</div>
+				</div>
+					</a>
+	<div class="col-sm-3 col-xs-12">
+					<div class="tile-stats tile-red">
+						<div class="icon"><i class="entypo-chart-bar"></i></div>
 
-					<div class="form-group">
-								<label class="col-sm-3 control-label">Select Department</label>
+								<h3>3rd Sem IT A1</h3>
+								<p>30 Students</p>
+								<p>701-795</p>
+					  		<p>4 Lectures Per Week</p>
+	      	</div></div>
+	<div class="col-sm-3 col-xs-12">
 
-								<div class="col-sm-9">
-									<select class="form-control">
-										<option>Select</option>
-										<option>Computer Science</option>
-										<option>Electronics</option>
-										<option>Electrical</option>
-										<option>Information Technology</option>
-									</select>
-								</div>
-							</div>
-							<div class="form-group">
-										<label class="col-sm-3 control-label">Select Semester</label>
+					<div class="tile-stats tile-aqua">
+							<div class="icon"><i class="entypo-chart-bar"></i></div>
 
-										<div class="col-sm-9">
-											<select class="form-control">
-												<option>Select</option>
-												<option>Second</option>
-												<option>Fourth</option>
-												<option>Sixth</option>
-												<option>Eighth</option>
-											</select>
-										</div>
-									</div>
-							<div class="form-group">
-								<label for="field-1" class="col-sm-3 control-label">Starting Roll No.</label>
-								<div class="col-sm-9">
-									<input type="text" class="form-control" id="lecturer_email" placeholder="Email">
-								</div>
-							</div>
-							<div class="form-group">
-								<label for="field-1" class="col-sm-3 control-label">Last Roll No.</label>
-								<div class="col-sm-9">
-									<input type="text" class="form-control" id="lecturer_email" placeholder="Email">
-								</div>
-							</div>
-							<div class="form-group">
-									<label for="field-1" class="col-sm-3 control-label">Scheduled Days</label>
-								<div class="col-sm-9">
-									<div class="checkbox">
-										<label>
-											<input type="checkbox">Monday
-										</label>
-									</div>
+							<h3>3rd Sem IT A1</h3>
+							<p>30 Students</p>
+							<p>701-795</p>
+			  			<p>4 Lectures Per Week</p>
+					</div></div>
+	<div class="col-sm-3 col-xs-12">
+					<div class="tile-stats tile-blue">
+							<div class="icon"><i class="entypo-chart-bar"></i></div>
 
-									<div class="checkbox">
-										<label>
-											<input type="checkbox">Tuesday
-										</label>
-									</div>
-									<div class="checkbox">
-										<label>
-											<input type="checkbox">Wednesday
-										</label>
-									</div>
-									<div class="checkbox">
-										<label>
-											<input type="checkbox">Thursday
-										</label>
-									</div>
-									<div class="checkbox">
-										<label>
-											<input type="checkbox">Friday
-										</label>
-									</div>
-									<div class="checkbox">
-										<label>
-											<input type="checkbox">Saturday
-										</label>
-									</div>
-</div>
+							<h3>3rd Sem IT A1</h3>
+							<p>30 Students</p>
+							<p>701-795</p>
+			  			<p>4 Lectures Per Week</p>
+					</div>
+				</div>				</div>
 
 
-
-								</div>
-							</div>
-
-
-
-
-							<div class="row" >
-								<center><input type="button" class="btn btn-primary" style="width:150px;height:45px;margin-top:20px;" value="Add Batch"></input></center>
-							</div>
-
-
-				</form>
 			</div>
 
-
+			<div class="row">
+				<center><h3>Add Using CVS</h3></center>
 			</div>
 
 		</div>

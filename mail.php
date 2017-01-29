@@ -117,9 +117,9 @@
 					<table class="table table-bordered">
 										<thead>
 											<tr>
-												<th>#</th>
+												<th>Roll No</th>
 												<th>Name</th>
-												<th>Address</th>
+												<th>Fathers Phone No.</th>
 											</tr>
 										</thead>
 
