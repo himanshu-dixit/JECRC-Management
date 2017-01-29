@@ -68,10 +68,17 @@
 
 
 		<div class="row">
+			<center><h2 style="margin-bottom:30px;">Add Attendance</h2></center>
+			<div class="row">
+			</div>
 
-<center><h2>Contact Us</h2></center>
+
+			</div>
+
 
 		</div>
+
+					</div>
 
 
 		<!-- Footer -->

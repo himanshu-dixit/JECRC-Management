@@ -111,7 +111,21 @@
 							<p>701-795</p>
 			  			<p>4 Lectures Per Week</p>
 					</div>
-				</div>				</div>
+				</div>
+
+				<div class="col-sm-3 col-xs-12">
+
+					<div class="tile-stats tile-purple">
+						<div class="icon"><i class="entypo-chart-bar"></i></div>
+
+
+						<h3>Add Student</h3>
+						<p>30 Students</p>
+						<p>701-795</p>
+						<p>4 Lectures Per Week</p>
+					</div></div>
+
+						</div>
 
 
 			</div>

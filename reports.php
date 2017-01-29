@@ -68,7 +68,7 @@
 
 
 		<div class="row">
-			<center><h2 style="margin-bottom:30px;">Manage</h2></center>
+			<center><h2 style="margin-bottom:30px;">Reports</h2></center>
 
 
 
