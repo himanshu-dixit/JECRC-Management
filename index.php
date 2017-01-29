@@ -1,6 +1,15 @@
 <?php
 $value = isset($_GET['value']) ? $_GET['value'] : '';
 
+//if(isset($_SESSION['UserName']))
+	session_start();
+	if(isset($_SESSION['UserName']))
+	{
+		header("Location:dashboard.php");
+	   exit;
+	}
+	//	echo $_SESSION['UserName'];die;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
