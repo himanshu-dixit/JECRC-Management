@@ -118,9 +118,6 @@
 
 			</div>
 
-			<div class="row">
-				<center><h3>Add Using CVS</h3></center>
-			</div>
 
 		</div>
 

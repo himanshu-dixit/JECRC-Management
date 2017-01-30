@@ -79,26 +79,26 @@
 					<div class="form-group">
 						<label for="field-1" class="col-sm-3 control-label">Name</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="lecturer_name" placeholder="Name">
+							<input type="text" class="form-control" name="name" id="lecturer_name" placeholder="Name">
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="field-1" class="col-sm-3 control-label">Email</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="lecturer_email" placeholder="Email">
+							<input type="text" class="form-control" id="lecturer_email" name="email" placeholder="Email">
 						</div>
 					</div>
 					<div class="form-group">
 								<label class="col-sm-3 control-label">Select Department</label>
 
 								<div class="col-sm-9">
-									<select class="form-control">
+									<select class="form-control" name="department">
 										<option>Select</option>
-										<option>Computer Science</option>
-										<option>Electronics</option>
-										<option>Electrical</option>
-										<option>Information Technology</option>
+										<option value="1">Computer Science</option>
+										<option value="2">Electronics</option>
+										<option value="3">Electrical</option>
+										<option value="4">Information Technology</option>
 									</select>
 								</div>
 							</div>
@@ -107,7 +107,7 @@
 
 								<div class="col-sm-9">
 									<div class="input-group">
-										<input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+										<input type="text" class="form-control datepicker" name="lecturer_dob" data-format="D, dd MM yyyy">
 
 										<div class="input-group-addon">
 											<a href="#"><i class="entypo-calendar"></i></a>
@@ -120,7 +120,7 @@
 
 								<div class="col-sm-9">
 									<div class="input-group">
-										<input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
+										<input type="text" class="form-control datepicker"  name="lecturer_joining_date" data-format="D, dd MM yyyy">
 
 										<div class="input-group-addon">
 											<a href="#"><i class="entypo-calendar"></i></a>
