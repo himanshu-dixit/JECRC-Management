@@ -75,7 +75,7 @@
 		<div class="row">
 			<center><h2 style="margin-bottom:30px;">Add Lecturer</h2></center>
 			<div class="row">
-				<form method="post" action="">
+				<form method="post" action="controller/add_lecturer.php">
 					<div class="form-group">
 						<label for="field-1" class="col-sm-3 control-label">Name</label>
 						<div class="col-sm-9">
