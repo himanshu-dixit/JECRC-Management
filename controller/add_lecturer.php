@@ -16,10 +16,9 @@ if(isset($name) && isset($email) && isset($department) && isset($dob) && isset($
   'doj'=>$joining_date,
   'dob'=>$dob
   ));
-
-
+  echo 'Succesfully Entered';
 }
 else{
-  echo 'Error Occuredl';
+  echo 'Error Occured';
 }
 ?>
