@@ -75,63 +75,50 @@
 		<div class="row">
 			<center><h2 style="margin-bottom:30px;">Add Student</h2></center>
 			<div class="row">
-				<form method="post" action="">
+				<form method="post" action="controller/add_student.php">
 					<div class="form-group">
 						<label for="field-1" class="col-sm-3 control-label">Name</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="lecturer_name" placeholder="Name">
+							<input type="text" class="form-control" id="lecturer_name" name="name" placeholder="Name">
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="field-1" class="col-sm-3 control-label">Email</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="lecturer_email" placeholder="Email">
+							<input type="text" class="form-control" id="email" name="email" placeholder="Email">
 						</div>
 					</div>
 					<div class="form-group">
 								<label class="col-sm-3 control-label">Select Department</label>
 
 								<div class="col-sm-9">
-									<select class="form-control">
+									<select class="form-control" name="department">
 										<option>Select</option>
-										<option>Computer Science</option>
-										<option>Electronics</option>
-										<option>Electrical</option>
-										<option>Information Technology</option>
+										<option value="1">Computer Science</option>
+										<option value="2">Electronics</option>
+										<option value="3">Electrical</option>
+										<option value="4">Information Technology</option>
 									</select>
 								</div>
 							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label">Date Of Birth</label>
 
-								<div class="col-sm-9">
-									<div class="input-group">
-										<input type="text" class="form-control datepicker" data-format="D, dd MM yyyy">
-
-										<div class="input-group-addon">
-											<a href="#"><i class="entypo-calendar"></i></a>
-										</div>
-									</div>
-								</div>
-							</div>
 							<div class="form-group">
 								<label for="field-1" class="col-sm-3 control-label">Roll No.</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="lecturer_email" placeholder="Email">
+									<input type="text" class="form-control" name="roll" placeholder="Roll">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="field-1" class="col-sm-3 control-label">Father Phone No</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="lecturer_email" placeholder="Email">
+									<input type="text" class="form-control" name="phone_no" placeholder="Phone No">
 								</div>
 							</div>
 
 
-
 							<div class="row" >
-								<center><input type="button" class="btn btn-primary" style="width:150px;height:45px;margin-top:20px;" value="Add Student"></input></center>
+								<center><input type="submit" class="btn btn-primary" style="width:150px;height:45px;margin-top:20px;" value="Add"></input></center>
 							</div>
 
 

@@ -130,7 +130,7 @@
 							</div>
 
 							<div class="row" >
-								<center><input type="button" class="btn btn-primary" style="width:150px;height:45px;margin-top:20px;" value="Add"></input></center>
+								<center><input type="submit" class="btn btn-primary" style="width:150px;height:45px;margin-top:20px;" value="Add"></input></center>
 							</div>
 
 
