@@ -7,6 +7,7 @@ Deploying this project in you current local machine.
 <pre>
   git init
   git remote add origin https://github.com/himanshu-dixit/JECRC-Management.git
+  git pull origin master
   git checkout -b yourname
   /* Modify The Code*?
   git add *
