@@ -9,7 +9,7 @@
 			<li class="sep"></li>
 
 			<li>
-				<a href="extra-login.html">
+				<a href="logout.php">
 					Log Out <i class="entypo-logout right"></i>
 				</a>
 			</li>
