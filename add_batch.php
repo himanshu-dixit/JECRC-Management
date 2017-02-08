@@ -75,98 +75,67 @@
 		<div class="row">
 			<center><h2 style="margin-bottom:30px;">Add Batch</h2></center>
 			<div class="row">
-				<form method="post" action="">
+				<form method="post" action="controller/add_batch.php">
 					<div class="form-group">
 						<label for="field-1" class="col-sm-3 control-label">Subject Name</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="lecturer_name" placeholder="Name">
+							<input type="text" class="form-control" name="subject_name" placeholder="Name">
 						</div>
 					</div>
 
 					<div class="form-group">
+						<label for="field-1" class="col-sm-3 control-label">Teacher Id</label>
+						<div class="col-sm-9">
+							<input type="text" class="form-control" name="teacher_id" placeholder="Name">
+						</div>
+					</div>
+					<div class="form-group">
 								<label class="col-sm-3 control-label">Select Department</label>
 
 								<div class="col-sm-9">
-									<select class="form-control">
-										<option>Select</option>
-										<option>Computer Science</option>
-										<option>Electronics</option>
-										<option>Electrical</option>
-										<option>Information Technology</option>
+									<select class="form-control" name="department">
+											<option>Select</option>
+											<option value="1">Computer Science</option>
+											<option value="2">Electronics</option>
+											<option value="3">Electrical</option>
+											<option value="4">Information Technology</option>
 									</select>
 								</div>
 							</div>
 							<div class="form-group">
-										<label class="col-sm-3 control-label">Select Semester</label>
+										<label class="col-sm-3 control-label">Select Year</label>
 
 										<div class="col-sm-9">
-											<select class="form-control">
+											<select class="form-control" name="year">
 												<option>Select</option>
-												<option>Second</option>
-												<option>Fourth</option>
-												<option>Sixth</option>
-												<option>Eighth</option>
+												<option value="1">Second</option>
+												<option value="2">Fourth</option>
+												<option value="3">Sixth</option>
+												<option value="4">Eighth</option>
 											</select>
 										</div>
 									</div>
 							<div class="form-group">
 								<label for="field-1" class="col-sm-3 control-label">Starting Roll No.</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="lecturer_email" placeholder="Email">
+									<input type="text" class="form-control"  name="start" placeholder="Email">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="field-1" class="col-sm-3 control-label">Last Roll No.</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="lecturer_email" placeholder="Email">
+									<input type="submitz" class="form-control" name="end" placeholder="Email">
 								</div>
 							</div>
-							<div class="form-group">
-									<label for="field-1" class="col-sm-3 control-label">Scheduled Days</label>
-								<div class="col-sm-9">
-									<div class="checkbox">
-										<label>
-											<input type="checkbox">Monday
-										</label>
-									</div>
-
-									<div class="checkbox">
-										<label>
-											<input type="checkbox">Tuesday
-										</label>
-									</div>
-									<div class="checkbox">
-										<label>
-											<input type="checkbox">Wednesday
-										</label>
-									</div>
-									<div class="checkbox">
-										<label>
-											<input type="checkbox">Thursday
-										</label>
-									</div>
-									<div class="checkbox">
-										<label>
-											<input type="checkbox">Friday
-										</label>
-									</div>
-									<div class="checkbox">
-										<label>
-											<input type="checkbox">Saturday
-										</label>
-									</div>
-</div>
 
 
-
-								</div>
 							</div>
 
 
 
 
 							<div class="row" >
-								<center><input type="button" class="btn btn-primary" style="width:150px;height:45px;margin-top:20px;" value="Add Batch"></input></center>
+								<center><input type="submit" class="btn btn-primary" style="width:150px;height:45px;margin-top:20px;" value="Add Batch"></input></center>
 							</div>
 
 

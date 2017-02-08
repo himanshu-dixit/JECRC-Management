@@ -36,7 +36,8 @@
 						<img src="https://www.greenmellenmedia.com/wp-content/uploads/slack-chat.png" alt="" class="img-circle" height="60px" width="60px"/>
 
 						<span>Welcome,</span>
-						<strong>Naveen Kedia</strong>
+						<strong><?php session_start();
+							echo $_SESSION['Name'];?></strong>
 					</a>
 				</div>
 

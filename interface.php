@@ -6,6 +6,28 @@
 		header("Location:welcome.php?value=home");
 	   exit;
 	}
+	include("database/connect.php");
+	$id = $_GET['id'];
+	$sql ="SELECT * FROM `tblbatch` WHERE BatchId='$id'";
+	$sth = $conn->prepare($sql);
+	$sth->execute();
+	$result = $sth->fetchAll();
+	if($_SESSION['FId']!=$result[0]['teacher_id']){
+		header("Location:welcome.php?value=home");
+	  exit;
+	}
+
+	$start= $result[0]['start'];
+	$end= $result[0]['end'];
+	$teacher_id = $_SESSION['FId'];
+	$sql ="SELECT * FROM `attendance_complete` WHERE batch_id='$id' and teacher_id=$teacher_id and DATE(date) = CURDATE()";
+	$sth = $conn->prepare($sql);
+	$sth->execute();
+	$result = $sth->fetchAll();
+	if($result){
+		echo 'already marked';
+		exit;
+	}
 	//	echo $_SESSION['UserName'];die;
 ?>
 <!DOCTYPE html>
@@ -31,7 +53,7 @@
 	<link rel="stylesheet" href="assets/css/skins/white.css">
 
 	<script src="assets/js/jquery-1.11.0.min.js"></script>
-	<script>$.noConflict();</script>
+
 
 	<!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -69,65 +91,41 @@
 
 		<div class="row">
 			<center><h2 style="margin-bottom:30px;">Add Attendance</h2>
-				<h4>30/01/2017 For DBMS Lecture</h4>
+				<h4><?php echo  date("Y/m/d");?>  For DBMS Lecture</h4>
 				<br>
 			</center>
 			<div class="row">
 
-
+				<?php
+				$sql ="SELECT * FROM `tblstudent` WHERE student_id>='$start' AND student_id<='$end'  ";
+				$sth = $conn->prepare($sql);
+				$sth->execute();
+				$result = $sth->fetchAll();
+				$count = 0;
+				foreach($result as $row){
+					 ?>
 				<div class="col-sm-3 col-xs-12">
-
-					<div class="tile-stats tile-green">
+					<div class="tile-stats" id="<?php echo $row['student_id'];?>" onclick="toggleattendance(<?php echo $row['student_id'];?>)">
 						<div class="icon"><i class="entypo-chart-bar"></i></div>
-
-
-						<h3>795</h3>
-						<p>Himanshu Dixit</p>
-
-
-					</div></div>
-	<div class="col-sm-3 col-xs-12">
-					<div class="tile-stats tile-red">
-						<div class="icon"><i class="entypo-chart-bar"></i></div>
-
-
-						<h3>796</h3>
-						<p>Himanshu Dixit</p>
-
-
-	      	</div></div>
-	<div class="col-sm-3 col-xs-12">
-
-					<div class="tile-stats tile-green">
-						<div class="icon"><i class="entypo-chart-bar"></i></div>
-
-
-						<h3>797</h3>
-						<p>Himanshu Dixit</p>
-
-
-					</div></div>
-	<div class="col-sm-3 col-xs-12">
-					<div class="tile-stats tile-red">
-						<div class="icon"><i class="entypo-chart-bar"></i></div>
-
-
-						<h3>798</h3>
-						<p>Himanshu Dixit</p>
-
-
+						<h3><?php echo $row['student_id'];?></h3>
+						<p><?php echo $row['name'];?></p>
 					</div>
-				</div>				</div>
+				</div>
+				<?php
+				$count++;
+			} ?>
+
+				</div>
 
 
 			</div>
 			<br>
 			<div class="row">
 				<center><h3>Student Present/Total Student</h3></center>
-					<center><h2>40/45</h2></center>
+					<center><h2><span id="student_count">0</span>/<?php echo $count;?></h2></center>
 			</div>
 			<div class="row" >
-				<center><button type="button" class="btn btn-primary" style="width:150px;height:45px;margin-top:20px;">Submit</button></center>
+					<a href="controller/complete.php?id=<?php echo $id;?>"><center><button type="button" class="btn btn-primary" style="width:150px;height:45px;margin-top:20px;">Done</button></center></a>
 			</div>
 
 		</div>
@@ -140,6 +138,44 @@
 	</div>
 
 
+<script>
+var count=0;
+function toggleattendance(id) {
+
+	if(document.getElementById(id).style.backgroundColor == "rgb(0, 166, 90)"){
+			document.getElementById(id).style.backgroundColor = "#ff3e41";
+			//mark absent
+			count--;
+			document.getElementById('student_count').innerHTML=count;
+		$.post("controller/mark.php",
+					{
+						type : "absent",
+						student_id : id,
+						batch_id: <?php echo $id;?> },
+					function(data, status){
+						console.log(status+""+data);
+					});
+	}
+	else{
+		//mark present
+		document.getElementById(id).style.backgroundColor = "#00a65a";
+		count++;
+		document.getElementById('student_count').innerHTML=count;
+
+		$.post("controller/mark.php",
+				{
+					type : "present",
+					student_id : id,
+					batch_id: <?php echo $id;?>
+				},
+				function(data, status){
+						console.log(status+""+data);
+				});
+
+	}
+
+}
+</script>
 
 
 
