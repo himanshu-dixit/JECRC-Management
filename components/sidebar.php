@@ -36,7 +36,7 @@
 						<img src="https://www.greenmellenmedia.com/wp-content/uploads/slack-chat.png" alt="" class="img-circle" height="60px" width="60px"/>
 
 						<span>Welcome,</span>
-						<strong><?php session_start();
+						<strong><?php
 							echo $_SESSION['Name'];?></strong>
 					</a>
 				</div>

@@ -71,7 +71,7 @@
 			<center><h2 style="margin-bottom:30px;">Manage</h2></center>
 			<div class="row">
 
-
+				<a href="reports.php">
 				<div class="col-sm-3 col-xs-12">
 
 					<div class="tile-stats tile-green">
@@ -79,10 +79,9 @@
 
 
 						<h3>View Reports</h3>
-						<p>30 Students</p>
-						<p>701-795</p>
-		  			<p>4 Lectures Per Week</p>
+
 					</div></div>
+				</a>
 					<a href="add_lecturer.php">
 	<div class="col-sm-3 col-xs-12">
 					<div class="tile-stats tile-red">
@@ -106,6 +105,7 @@
 			  			<p>4 Lectures Per Week</p>
 					</div></div>
 				</a>
+				<!--
 	<div class="col-sm-3 col-xs-12">
 					<div class="tile-stats tile-blue">
 							<div class="icon"><i class="entypo-chart-bar"></i></div>
@@ -115,7 +115,7 @@
 							<p>701-795</p>
 			  			<p>4 Lectures Per Week</p>
 					</div>
-				</div>
+				</div>-->
 				<a href="add_student.php">
 				<div class="col-sm-3 col-xs-12">
 

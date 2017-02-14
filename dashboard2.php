@@ -6,28 +6,6 @@
 		header("Location:welcome.php?value=home");
 	   exit;
 	}
-	include("database/connect.php");
-	$id = $_GET['id'];
-	$sql ="SELECT * FROM `tblbatch` WHERE BatchId='$id'";
-	$sth = $conn->prepare($sql);
-	$sth->execute();
-	$result = $sth->fetchAll();
-	if($_SESSION['FId']!=$result[0]['teacher_id']){
-		header("Location:welcome.php?value=home");
-	  exit;
-	}
-
-	$start= $result[0]['start'];
-	$end= $result[0]['end'];
-	$teacher_id = $_SESSION['FId'];
-	$sql ="SELECT * FROM `attendance_complete` WHERE batch_id='$id' and teacher_id=$teacher_id and DATE(date) = CURDATE()";
-	$sth = $conn->prepare($sql);
-	$sth->execute();
-	$result = $sth->fetchAll();
-	if($result){
-		echo 'already marked';
-		exit;
-	}
 	//	echo $_SESSION['UserName'];die;
 ?>
 <!DOCTYPE html>
@@ -53,7 +31,7 @@
 	<link rel="stylesheet" href="assets/css/skins/white.css">
 
 	<script src="assets/js/jquery-1.11.0.min.js"></script>
-
+	<script>$.noConflict();</script>
 
 	<!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -90,37 +68,51 @@
 
 
 		<div class="row">
-			<center><h2 style="margin-bottom:30px;">Add Attendance</h2>
-				<h4><?php echo  date("Y/m/d");?>  For DBMS Lecture</h4>
-				<br>
-			</center>
+			<center><h2 style="margin-bottom:30px;">Select Batch</h2></center>
 			<div class="row">
-				<form action="">
-				<?php
-				$sql ="SELECT * FROM `tblstudent` WHERE student_id>='$start' AND student_id<='$end'  ";
-				$sth = $conn->prepare($sql);
-				$sth->execute();
-				$result = $sth->fetchAll();
-				$count = 0;
-				foreach($result as $row){
-					 ?>
-				<center>	 <input onclick="toggleattendance" type="checkbox" name="attendance" value="<?php echo $row['student_id'];?>"><?php echo $row['name'];?></center><br>
-				<?php
-				$count++;
-			} ?>
-			</form>
+
+	 	<?php
+			include("database/connect.php");
+			error_reporting(E_ALL);
+			$f_id = $_SESSION['FId'];
+			$sql ="SELECT * FROM `tblbatch` WHERE teacher_id='$f_id'";
+			$sth = $conn->prepare($sql);
+			$sth->execute();
+
+
+			$result = $sth->fetchAll();
+			foreach($result as $row){
+				$a=array("red","green","blue","acqua");
+				$random_keys=array_rand($a,3);
+		?>
+
+				<a href="interface.php?id=<?php echo $row['BatchId'];?>">
+				<div class="col-sm-3 col-xs-12">
+
+					<div class="tile-stats tile-<?php echo $a[$random_keys[2]];?>">
+						<div class="icon"><i class="entypo-chart-bar"></i></div>
+
+						<h3><?php switch ($row['BrId']){
+							case '1':
+								echo 'Information Technology';
+								break;
+							case '2':
+									echo 'Computer Science';
+						} ?></h3>
+						<p><?php echo $row['BatchName'];?></p>
+						<p><?php echo $row['end']-$row['start'];?>- Students</p>
+						<p><?php echo $row['start'];?>-<?php echo $row['end'];?></p>
+					</div>
+				</div>
+					</a>
+
+				<?php } ?>
+
 				</div>
 
 
 			</div>
-			<br>
-			<div class="row">
-				<center><h3>Student Present/Total Student</h3></center>
-					<center><h2><span id="student_count">0</span>/<?php echo $count;?></h2></center>
-			</div>
-			<div class="row" >
-					<a href="controller/complete.php?id=<?php echo $id;?>"><center><button type="button" class="btn btn-primary" style="width:150px;height:45px;margin-top:20px;">Done</button></center></a>
-			</div>
+
 
 		</div>
 
@@ -132,44 +124,6 @@
 	</div>
 
 
-<script>
-var count=0;
-function toggleattendance(id) {
-
-	if(document.getElementById(id).style.backgroundColor == "rgb(0, 166, 90)"){
-			document.getElementById(id).style.backgroundColor = "#ff3e41";
-			//mark absent
-			count--;
-			document.getElementById('student_count').innerHTML=count;
-		$.post("controller/mark.php",
-					{
-						type : "absent",
-						student_id : id,
-						batch_id: <?php echo $id;?> },
-					function(data, status){
-						console.log(status+""+data);
-					});
-	}
-	else{
-		//mark present
-		document.getElementById(id).style.backgroundColor = "#00a65a";
-		count++;
-		document.getElementById('student_count').innerHTML=count;
-
-		$.post("controller/mark.php",
-				{
-					type : "present",
-					student_id : id,
-					batch_id: <?php echo $id;?>
-				},
-				function(data, status){
-						console.log(status+""+data);
-				});
-
-	}
-
-}
-</script>
 
 
 

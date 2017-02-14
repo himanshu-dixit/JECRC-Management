@@ -1,11 +1,6 @@
 <?php
 //if(isset($_SESSION['UserName']))
-	session_start();
-	if(!isset($_SESSION['UserName']))
-	{
-		header("Location:welcome.php?value=home");
-	   exit;
-	}
+
 	//	echo $_SESSION['UserName'];die;
 ?>
 <!DOCTYPE html>
