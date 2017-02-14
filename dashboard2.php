@@ -86,7 +86,7 @@
 				$random_keys=array_rand($a,3);
 		?>
 
-				<a href="reports.php?id=<?php echo $row['BatchId'];?>">
+				<a href="interface.php?id=<?php echo $row['BatchId'];?>">
 				<div class="col-sm-3 col-xs-12">
 
 					<div class="tile-stats tile-<?php echo $a[$random_keys[2]];?>">
