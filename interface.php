@@ -95,7 +95,7 @@
 				<br>
 			</center>
 			<div class="row">
-
+				<form action="">
 				<?php
 				$sql ="SELECT * FROM `tblstudent` WHERE student_id>='$start' AND student_id<='$end'  ";
 				$sth = $conn->prepare($sql);
@@ -104,17 +104,11 @@
 				$count = 0;
 				foreach($result as $row){
 					 ?>
-				<div class="col-sm-3 col-xs-12">
-					<div class="tile-stats" id="<?php echo $row['student_id'];?>" onclick="toggleattendance(<?php echo $row['student_id'];?>)">
-						<div class="icon"><i class="entypo-chart-bar"></i></div>
-						<h3><?php echo $row['student_id'];?></h3>
-						<p><?php echo $row['name'];?></p>
-					</div>
-				</div>
+				<center>	 <input onclick="toggleattendance" type="checkbox" name="attendance" value="<?php echo $row['student_id'];?>"><?php echo $row['name'];?></center><br>
 				<?php
 				$count++;
 			} ?>
-
+			</form>
 				</div>
 
 
