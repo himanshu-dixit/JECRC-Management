@@ -50,11 +50,9 @@ $value = isset($_GET['value']) ? $_GET['value'] : '';
 <body class="page-body login-page">
 
 
-
 <div class="login-container">
 
 	<div class="login-form">
-
 		<div class="login-content">
 
 			<a href="index.html" class="logo_text">
@@ -102,6 +100,15 @@ $value = isset($_GET['value']) ? $_GET['value'] : '';
 				</div>
 
 				<div class="form-group">
+					<select class="form-control" name="type">
+						<option>Select</option>
+						<option value="admin">Admin</option>
+						<option value="hod">HOD</option>
+						<option value="faculty">Faculty</option>
+					</select>
+				</div>
+
+				<div class="form-group">
 					<button type="submit" class="btn btn-primary btn-block btn-login">
 						<i class="entypo-login"></i>
 						Login In
@@ -118,7 +125,7 @@ $value = isset($_GET['value']) ? $_GET['value'] : '';
 
 				<br />
 
-				<a href="#">About</a>
+				<a href="#">Developed by Naveen Kedia And Himanshu Dixit</a>
 
 			</div>
 

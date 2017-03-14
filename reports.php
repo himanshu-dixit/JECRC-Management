@@ -68,8 +68,47 @@
 
 
 		<div class="row">
-			<center><h2 style="margin-bottom:30px;">Reports</h2></center>
+			<center><h2 style="margin-bottom:30px;">Select Batch</h2></center>
+			<div class="row">
 
+	 	<?php
+			include("database/connect.php");
+			error_reporting(E_ALL);
+			$f_id = $_SESSION['FId'];
+			$sql ="SELECT * FROM `tblbatch` WHERE teacher_id='$f_id'";
+			$sth = $conn->prepare($sql);
+			$sth->execute();
+
+
+			$result = $sth->fetchAll();
+			foreach($result as $row){
+				$a=array("red","green","blue","acqua");
+				$random_keys=array_rand($a,3);
+		?>
+
+				<a href="reports.php?id=<?php echo $row['BatchId'];?>">
+				<div class="col-sm-3 col-xs-12">
+
+					<div class="tile-stats tile-<?php echo $a[$random_keys[2]];?>">
+						<div class="icon"><i class="entypo-chart-bar"></i></div>
+
+						<h3><?php switch ($row['BrId']){
+							case '1':
+								echo 'Information Technology';
+								break;
+							case '2':
+									echo 'Computer Science';
+						} ?></h3>
+						<p><?php echo $row['BatchName'];?></p>
+						<p><?php echo $row['end']-$row['start'];?>- Students</p>
+						<p><?php echo $row['start'];?>-<?php echo $row['end'];?></p>
+					</div>
+				</div>
+					</a>
+
+				<?php } ?>
+
+				</div>
 
 
 			</div>

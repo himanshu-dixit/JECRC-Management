@@ -36,7 +36,7 @@
 						<img src="https://www.greenmellenmedia.com/wp-content/uploads/slack-chat.png" alt="" class="img-circle" height="60px" width="60px"/>
 
 						<span>Welcome,</span>
-						<strong><?php session_start();
+						<strong><?php
 							echo $_SESSION['Name'];?></strong>
 					</a>
 				</div>
@@ -54,7 +54,7 @@
 					</a>
 				</li>
 					<li>
-						<a href="add.php">
+						<a href="dashboard2.php">
 						<i class="entypo-window"></i>
 						<span class="title">Add Attendance</span>
 						</a>

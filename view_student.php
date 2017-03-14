@@ -90,8 +90,8 @@
 		<?php include 'components/top_bar.php';?>
 
 		<div class="row">
-			<center><h2 style="margin-bottom:30px;">Add Attendance</h2>
-				<h4><?php echo  date("Y/m/d");?>  For DBMS Lecture</h4>
+			<center><h2 style="margin-bottom:30px;">Student List</h2>
+
 				<br>
 			</center>
 <style>
@@ -112,47 +112,37 @@ tr:nth-child(even) {
 }
 </style>
 			<div class="row">
-				<form action="controller/mark.php" method="post">
-					<input value="<?php echo $id;?>" name="batch_id" style="display:none;">
-					<input value="<?php echo $start;?>" name="start" style="display:none;">
-					<input value="<?php echo $end;?>" name="end" style="display:none;">
-					<input vale="<?php echo  date("Y/m/d");?>" name="date" style="display:none;">
-					<table style="margin: 0 auto;">
+				<table style="margin:0 auto;">
 				<?php
-				$sql ="SELECT * FROM `tblstudent` WHERE student_id>='$start' AND student_id<='$end'  ";
+				$sql ="SELECT * FROM `tblstudent`  ";
 				$sth = $conn->prepare($sql);
 				$sth->execute();
 				$result = $sth->fetchAll();
-				$count = 0;
+				ini_set("display_errors", "1");
+				error_reporting(E_ALL);
+
 				foreach($result as $row){
-					 ?>
-					 <tr>
-					 <td style="width:300px;"><h3><?php echo $row['name'];?></h3></td>
-					 <td style="width:300px;">
-						 	<center>	 <input onclick="toggleattendance(<?php echo $row['student_id'];?>)" id="<?php echo $row['student_id'];?>" type="checkbox" name="attendance[]" style="height:20px;width:20px;" value="<?php echo $row['student_id'];?>"></center>
+					?>
+					<tr>
+						<td>
+							<?php echo $row['student_id'];?>
+						</td>
+						<td>
+								<?php echo $row['name'];?>
 						</td>
 					</tr>
+
 				<?php
 				$count++;
 		   	} ?>
 			</table>
 						</div>			</div>
-						<div class="row">
-							<center>
-				<input type="submit" class="btn btn-primary" style="width:150px;height:45px;margin:50px auto ;" value="Submit Attendance">
-			</center>
+
 			</div>
-		</form>
 
 
 
 
-
-			<br>
-			<div class="row">
-				<center><h3>Student Present/Total Student</h3></center>
-					<center><h2><span id="student_count">0</span>/<?php echo $count;?></h2></center>
-			</div>
 
 		</div>
 
@@ -163,18 +153,6 @@ tr:nth-child(even) {
 		<?php include 'components/footer.php';?>
 	</div>
 
-<script>
-var count=0;
-function toggleattendance(id) {
-	if(document.getElementById(id).checked) {
-		count++;
-		document.getElementById('student_count').innerHTML=count;
-} else {
-		count--;
-		document.getElementById('student_count').innerHTML=count;
-}
-}
-</script>
 
 </div>
 
