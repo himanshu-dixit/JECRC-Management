@@ -3,6 +3,8 @@ include '../database/connect.php';
 $start = $_POST['start'];
 $end = $_POST['end'];
 $teacher_id = $_POST['teacher_id'];
+$pos = strpos($teacher_id, '|');
+$teacher_id = substr($teacher_id, $pos+1, 8);
 $subject_name = $_POST['subject_name'];
 $department = $_POST['department'];
 $year = $_POST['year'];

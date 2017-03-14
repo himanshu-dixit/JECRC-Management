@@ -1,5 +1,6 @@
 <?php
 //if(isset($_SESSION['UserName']))
+include('database/connect.php');
 	session_start();
 	if(!isset($_SESSION['UserName']))
 	{
@@ -68,8 +69,42 @@
 	<div class="main-content">
 
 		<?php include 'components/top_bar.php';?>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+		<script>
+	  $( function() {
+	    var availableTags = [
+				<?php
+				$sql ="SELECT * FROM `tblfaculty`,tbldept where tblfaculty.DeptId = tbldept.DeptId ";
+				$sth = $conn->prepare($sql);
+				$sth->execute();
+				$result = $sth->fetchAll();
+				ini_set("display_errors", "1");
+				error_reporting(E_ALL);
+
+				foreach($result as $row){
+					?>
+						      "<?php echo $row['DeptName'];?> - <?php echo $row['FName'];?>  |<?php echo $row['FId'];?>",
+				<?php }	?>
 
 
+	      ""
+	    ];
+	    $( "#auto" ).autocomplete({
+	      source: availableTags
+	    });
+	  } );
+	  </script>
+
+		<style>
+		.ui-menu-item{
+			height: 40px;
+			background-color : white;
+			padding-left: 10px;
+			padding-top: 5px;
+		}
+		</style>
 
 
 		<div class="row">
@@ -84,9 +119,9 @@
 					</div>
 
 					<div class="form-group">
-						<label for="field-1" class="col-sm-3 control-label">Teacher Id</label>
+						<label for="field-1" class="col-sm-3 control-label">Teacher</label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" name="teacher_id" placeholder="Name">
+							<input type="text" class="form-control" name="teacher_id" id="auto" placeholder="Name">
 						</div>
 					</div>
 					<div class="form-group">
@@ -108,23 +143,23 @@
 										<div class="col-sm-9">
 											<select class="form-control" name="year">
 												<option>Select</option>
-												<option value="1">Second</option>
-												<option value="2">Fourth</option>
-												<option value="3">Sixth</option>
-												<option value="4">Eighth</option>
+												<option value="1">First</option>
+												<option value="2">Secondd</option>
+												<option value="3">Third</option>
+												<option value="4">Fourth</option>
 											</select>
 										</div>
 									</div>
 							<div class="form-group">
 								<label for="field-1" class="col-sm-3 control-label">Starting Roll No.</label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control"  name="start" placeholder="Email">
+									<input type="text" class="form-control"  name="start" placeholder="Starting">
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="field-1" class="col-sm-3 control-label">Last Roll No.</label>
 								<div class="col-sm-9">
-									<input type="submitz" class="form-control" name="end" placeholder="Email">
+									<input type="submitz" class="form-control" name="end" placeholder="Last">
 								</div>
 							</div>
 
