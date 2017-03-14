@@ -26,6 +26,9 @@
 	$result = $sth->fetchAll();
 	if($result){
 		echo 'already marked';
+		?>
+<meta http-equiv="refresh" content="0; url=./" />
+		<?php
 		exit;
 	}
 	//	echo $_SESSION['UserName'];die;
@@ -86,16 +89,35 @@
 
 		<?php include 'components/top_bar.php';?>
 
-
-
-
 		<div class="row">
 			<center><h2 style="margin-bottom:30px;">Add Attendance</h2>
 				<h4><?php echo  date("Y/m/d");?>  For DBMS Lecture</h4>
 				<br>
 			</center>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
 			<div class="row">
-				<form action="">
+				<form action="controller/mark.php" method="post">
+					<input value="<?php echo $id;?>" name="batch_id" style="display:none;">
+					<input value="<?php echo $start;?>" name="start" style="display:none;">
+					<input value="<?php echo $end;?>" name="end" style="display:none;">
+					<input vale="<?php echo  date("Y/m/d");?>" name="date" style="display:none;">
+					<table style="margin: 0 auto;">
 				<?php
 				$sql ="SELECT * FROM `tblstudent` WHERE student_id>='$start' AND student_id<='$end'  ";
 				$sth = $conn->prepare($sql);
@@ -104,22 +126,32 @@
 				$count = 0;
 				foreach($result as $row){
 					 ?>
-				<center>	 <input onclick="toggleattendance" type="checkbox" name="attendance" value="<?php echo $row['student_id'];?>"><?php echo $row['name'];?></center><br>
+					 <tr>
+					 <td style="width:300px;"><h3><?php echo $row['name'];?></h3></td>
+					 <td style="width:300px;">
+						 	<center>	 <input onclick="toggleattendance(<?php echo $row['student_id'];?>)" id="<?php echo $row['student_id'];?>" type="checkbox" name="attendance[]" style="height:20px;width:20px;" value="<?php echo $row['student_id'];?>"></center>
+						</td>
+					</tr>
 				<?php
 				$count++;
-			} ?>
-			</form>
-				</div>
-
-
+		   	} ?>
+			</table>
+						</div>			</div>
+						<div class="row">
+							<center>
+				<input type="submit" class="btn btn-primary" style="width:150px;height:45px;margin:50px auto ;" value="Submit Attendance">
+			</center>
 			</div>
+		</form>
+
+
+
+
+
 			<br>
 			<div class="row">
 				<center><h3>Student Present/Total Student</h3></center>
 					<center><h2><span id="student_count">0</span>/<?php echo $count;?></h2></center>
-			</div>
-			<div class="row" >
-					<a href="controller/complete.php?id=<?php echo $id;?>"><center><button type="button" class="btn btn-primary" style="width:150px;height:45px;margin-top:20px;">Done</button></center></a>
 			</div>
 
 		</div>
@@ -131,47 +163,18 @@
 		<?php include 'components/footer.php';?>
 	</div>
 
-
 <script>
 var count=0;
 function toggleattendance(id) {
-
-	if(document.getElementById(id).style.backgroundColor == "rgb(0, 166, 90)"){
-			document.getElementById(id).style.backgroundColor = "#ff3e41";
-			//mark absent
-			count--;
-			document.getElementById('student_count').innerHTML=count;
-		$.post("controller/mark.php",
-					{
-						type : "absent",
-						student_id : id,
-						batch_id: <?php echo $id;?> },
-					function(data, status){
-						console.log(status+""+data);
-					});
-	}
-	else{
-		//mark present
-		document.getElementById(id).style.backgroundColor = "#00a65a";
+	if(document.getElementById(id).checked) {
 		count++;
 		document.getElementById('student_count').innerHTML=count;
-
-		$.post("controller/mark.php",
-				{
-					type : "present",
-					student_id : id,
-					batch_id: <?php echo $id;?>
-				},
-				function(data, status){
-						console.log(status+""+data);
-				});
-
-	}
-
+} else {
+		count--;
+		document.getElementById('student_count').innerHTML=count;
+}
 }
 </script>
-
-
 
 </div>
 

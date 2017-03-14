@@ -53,8 +53,6 @@ $value = isset($_GET['value']) ? $_GET['value'] : '';
 <div class="login-container">
 
 	<div class="login-form">
-<marquee style="color: #fff;">Today is Mr. Navneet Kaur's Birthday !!</marquee>
-
 		<div class="login-content">
 
 			<a href="index.html" class="logo_text">

@@ -54,7 +54,7 @@
 					</a>
 				</li>
 					<li>
-						<a href="add.php">
+						<a href="dashboard2.php">
 						<i class="entypo-window"></i>
 						<span class="title">Add Attendance</span>
 						</a>

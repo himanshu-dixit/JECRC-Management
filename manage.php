@@ -130,6 +130,42 @@
 					</div></div>
 				</a>
 
+				<a href="view_student.php">
+				<div class="col-sm-3 col-xs-12">
+
+					<div class="tile-stats tile-purple">
+						<div class="icon"><i class="entypo-chart-bar"></i></div>
+
+
+						<h3>View Students</h3>
+
+					</div></div>
+				</a>
+
+				<a href="view_batch.php">
+				<div class="col-sm-3 col-xs-12">
+
+					<div class="tile-stats tile-green">
+						<div class="icon"><i class="entypo-chart-bar"></i></div>
+
+
+						<h3>View Batches</h3>
+
+					</div></div>
+				</a>
+
+				<a href="view_faculty.php">
+				<div class="col-sm-3 col-xs-12">
+
+					<div class="tile-stats tile-red">
+						<div class="icon"><i class="entypo-chart-bar"></i></div>
+
+
+						<h3>View Faculty</h3>
+
+					</div></div>
+				</a>
+
 						</div>
 
 

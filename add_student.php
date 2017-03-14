@@ -161,8 +161,6 @@
 	<script src="assets/js/neon-api.js"></script>
 	<script src="assets/js/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
 
-
-	<!-- Imported scripts on this page -->
 	<script src="assets/js/jvectormap/jquery-jvectormap-europe-merc-en.js"></script>
 	<script src="assets/js/jquery.sparkline.min.js"></script>
 	<script src="assets/js/rickshaw/vendor/d3.v3.js"></script>
@@ -173,11 +171,9 @@
 	<script src="assets/js/neon-chat.js"></script>
 
 
-	<!-- JavaScripts initializations and stuff -->
 	<script src="assets/js/neon-custom.js"></script>
 
 
-	<!-- Demo Settings -->
 	<script src="assets/js/neon-demo.js"></script>
 
 </body>

@@ -4,11 +4,11 @@ ob_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 include("database/connect.php");
-	extract($_POST);
+extract($_POST);
 
-//For edit extra work
-/*For user login*/
-//die;
+			//For edit extra work
+			/*For user login*/
+			//die;
 			if($type){
 			if($type=="faculty"){
 		 	 	$sql ="SELECT * FROM `tbluser` WHERE BINARY UserName='$txtUserName' and BINARY Password='$txtPassword'";
@@ -44,11 +44,11 @@ include("database/connect.php");
 					}
 				}
 				else if($type == "admin"){
-					$admin_list=["hod1","hod2"];
-					$password_list=["hod1","hod2"];
+					$admin_list=["admin","hod2"];
+					$password_list=["admin","hod2"];
 					$i = array_search($txtUserName, $admin_list);
 					if($password_list[$i]==$txtPassword){
-						$_SESSION['UserName']=$$admin_list[$i];
+						$_SESSION['UserName']=$admin_list[$i];
 						$_SESSION['type']="admin";
 						header("Location:dashboard.php");
 					}

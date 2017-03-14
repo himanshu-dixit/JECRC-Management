@@ -1,6 +1,6 @@
 <?php
 //if(isset($_SESSION['UserName']))
-
+include 'database/connect.php';
 	//	echo $_SESSION['UserName'];die;
 ?>
 <!DOCTYPE html>
@@ -240,21 +240,23 @@
 
 
 		<div class="row">
-			<div class="col-sm-3 col-xs-6">
-
-				<div class="tile-stats tile-red">
-					<div class="icon"><i class="entypo-users"></i></div>
-
-					<h3>Add Attendance</h3>
-				</div>
-
-			</div>
 
 			<div class="col-sm-3 col-xs-6">
 
 				<div class="tile-stats tile-green">
 					<div class="icon"><i class="entypo-chart-bar"></i></div>
-					<div class="num" data-start="0" data-end="135" data-postfix="" data-duration="1500" data-delay="600">0</div>
+					<div class="num" data-start="0" data-end="135" data-postfix="" data-duration="1500" data-delay="600">
+						<?php
+
+							$sql1 ="SELECT  count(*) as `no` FROM `tblstudent` ";
+							$sth1 = $conn->prepare($sql1);
+							$sth1->execute();
+							$result1 = $sth1->fetchAll();
+							echo $result1[0][0];
+
+  								?>
+
+					</div>
 
 					<h3>Total Students</h3>
 					<p>In all your batches</p>
@@ -266,7 +268,25 @@
 
 				<div class="tile-stats tile-aqua">
 					<div class="icon"><i class="entypo-mail"></i></div>
-					<div class="num" data-start="0" data-end="23" data-postfix="" data-duration="1500" data-delay="1200">135</div>
+					<div class="num" data-start="0" data-end="23" data-postfix="" data-duration="1500" data-delay="1200">
+						<?php
+
+							ini_set("display_errors", "1");
+							error_reporting(E_ALL);
+
+							$sql1 ="SELECT  count(*) as `no` FROM `tblstudent` ";
+							$sth1 = $conn->prepare($sql1);
+							$sth1->execute();
+							$result1 = $sth1->fetchAll();
+
+							$sql2 ="SELECT  count(*) as `no` FROM `tblbatch` ";
+							$sth2 = $conn->prepare($sql1);
+							$sth2->execute();
+							$result2 = $sth2->fetchAll();
+							echo $result1[0][0]/$result2[0][0];
+
+  								?>
+					</div>
 
 					<h3>Students Per Batch</h3>
 					<p>this is average.</p>
@@ -278,7 +298,9 @@
 
 				<div class="tile-stats tile-blue">
 					<div class="icon"><i class="entypo-rss"></i></div>
-					<div class="num" data-start="0" data-end="52" data-postfix="" data-duration="1500" data-delay="1800">0</div>
+					<div class="num" data-start="0" data-end="52" data-postfix="" data-duration="1500" data-delay="1800">
+						<?php echo $result2[0][0];?>
+					</div>
 
 					<h3>Batches</h3>
 				</div>

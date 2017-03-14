@@ -6,6 +6,31 @@
 		header("Location:welcome.php?value=home");
 	   exit;
 	}
+	include("database/connect.php");
+	$id = $_GET['id'];
+	$sql ="SELECT * FROM `tblbatch` WHERE BatchId='$id'";
+	$sth = $conn->prepare($sql);
+	$sth->execute();
+	$result = $sth->fetchAll();
+	if($_SESSION['FId']!=$result[0]['teacher_id']){
+		header("Location:welcome.php?value=home");
+	  exit;
+	}
+
+	$start= $result[0]['start'];
+	$end= $result[0]['end'];
+	$teacher_id = $_SESSION['FId'];
+	$sql ="SELECT * FROM `attendance_complete` WHERE batch_id='$id' and teacher_id=$teacher_id and DATE(date) = CURDATE()";
+	$sth = $conn->prepare($sql);
+	$sth->execute();
+	$result = $sth->fetchAll();
+	if($result){
+		echo 'already marked';
+		?>
+<meta http-equiv="refresh" content="0; url=./" />
+		<?php
+		exit;
+	}
 	//	echo $_SESSION['UserName'];die;
 ?>
 <!DOCTYPE html>
@@ -31,7 +56,7 @@
 	<link rel="stylesheet" href="assets/css/skins/white.css">
 
 	<script src="assets/js/jquery-1.11.0.min.js"></script>
-	<script>$.noConflict();</script>
+
 
 	<!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
 
@@ -64,67 +89,64 @@
 
 		<?php include 'components/top_bar.php';?>
 
-
-
-
 		<div class="row">
-			<center><h2 style="margin-bottom:30px;">Select Batch</h2></center>
+			<center><h2 style="margin-bottom:30px;">Batches</h2>
+
+				<br>
+			</center>
+<style>
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 70%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
 			<div class="row">
 
-	 	<?php
-			include("database/connect.php");
-			error_reporting(E_ALL);
-			$f_id = $_SESSION['FId'];
-			$sql ="SELECT * FROM `tblbatch` WHERE teacher_id='$f_id'";
-			$sth = $conn->prepare($sql);
-			$sth->execute();
+				<?php
+				$sql ="SELECT * FROM `tblbatch`,tblfaculty where tblbatch.BatchId = tblfaculty.Fid ";
+				$sth = $conn->prepare($sql);
+				$sth->execute();
+				$result = $sth->fetchAll();
+				ini_set("display_errors", "1");
+				error_reporting(E_ALL);
 
+				foreach($result as $row){
+					 ?>
 
-			$result = $sth->fetchAll();
-			foreach($result as $row){
+					 <div class="col-sm-3 col-xs-6">
 
-				$check_id = $row['BatchId'];
+						 <div class="tile-stats tile-blue">
+							 <div class="icon"><i class="entypo-rss"></i></div>
+							 <div class="num" data-postfix="" data-duration="1500" data-delay="1800">
+								 <?php echo $row[1];?>
+							 </div>
 
-				$sql1 ="SELECT * FROM `attendance_complete` WHERE batch_id='$check_id' and teacher_id=$f_id and DATE(date) = CURDATE()";
-				$sth1 = $conn->prepare($sql1);
-				$sth1->execute();
-				$result1 = $sth1->fetchAll();
-				$a = "green";
-				if($result1){
-					$a = "red";
+							 <h3>	 <?php echo $row['FName'];?></h3>
+						 </div>
 
-				}
+					 </div>
 
+				<?php
+				$count++;
+		   	} ?>
 
-
-		?>
-
-				<a href="interface.php?id=<?php echo $row['BatchId'];?>">
-				<div class="col-sm-3 col-xs-12">
-
-					<div class="tile-stats tile-<?php echo $a;?>">
-						<div class="icon"><i class="entypo-chart-bar"></i></div>
-
-						<h3><?php switch ($row['BrId']){
-							case '1':
-								echo 'Information Technology';
-								break;
-							case '2':
-									echo 'Computer Science';
-						} ?></h3>
-						<p><?php echo $row['BatchName'];?></p>
-						<p><?php echo $row['end']-$row['start'];?>- Students</p>
-						<p><?php echo $row['start'];?>-<?php echo $row['end'];?></p>
-					</div>
-				</div>
-					</a>
-
-				<?php } ?>
-
-				</div>
-
+						</div>			</div>
 
 			</div>
+
+
+
 
 
 		</div>
@@ -135,9 +157,6 @@
 		<!-- Footer -->
 		<?php include 'components/footer.php';?>
 	</div>
-
-
-
 
 
 </div>
